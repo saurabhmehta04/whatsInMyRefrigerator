@@ -15,6 +15,7 @@
 		D2949C491A2FE0A3006B8D7D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2949C481A2FE0A3006B8D7D /* Images.xcassets */; };
 		D2949C4C1A2FE0A3006B8D7D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2949C4A1A2FE0A3006B8D7D /* LaunchScreen.xib */; };
 		D2949C581A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2949C571A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m */; };
+		D2949C621A2FE135006B8D7D /* video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2949C611A2FE135006B8D7D /* video.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		D2949C511A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whatsInMyRefrigeratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2949C561A2FE0A4006B8D7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2949C571A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whatsInMyRefrigeratorTests.m; sourceTree = "<group>"; };
+		D2949C611A2FE135006B8D7D /* video.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		D2949C371A2FE0A3006B8D7D /* whatsInMyRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				D2949C611A2FE135006B8D7D /* video.jpg */,
 				D2949C3C1A2FE0A3006B8D7D /* AppDelegate.h */,
 				D2949C3D1A2FE0A3006B8D7D /* AppDelegate.m */,
 				D2949C3F1A2FE0A3006B8D7D /* FirstViewController.h */,
@@ -207,6 +210,7 @@
 				D2949C471A2FE0A3006B8D7D /* Main.storyboard in Resources */,
 				D2949C4C1A2FE0A3006B8D7D /* LaunchScreen.xib in Resources */,
 				D2949C491A2FE0A3006B8D7D /* Images.xcassets in Resources */,
+				D2949C621A2FE135006B8D7D /* video.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
