@@ -16,6 +16,7 @@
 		D2949C4C1A2FE0A3006B8D7D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2949C4A1A2FE0A3006B8D7D /* LaunchScreen.xib */; };
 		D2949C581A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2949C571A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m */; };
 		D2949C621A2FE135006B8D7D /* video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2949C611A2FE135006B8D7D /* video.jpg */; };
+		D2E96D401A2FFABF001C096A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E96D3F1A2FFABF001C096A /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		D2949C561A2FE0A4006B8D7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2949C571A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whatsInMyRefrigeratorTests.m; sourceTree = "<group>"; };
 		D2949C611A2FE135006B8D7D /* video.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video.jpg; sourceTree = "<group>"; };
+		D2E96D3E1A2FFABF001C096A /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		D2E96D3F1A2FFABF001C096A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,7 @@
 		D2949C371A2FE0A3006B8D7D /* whatsInMyRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				D2E96D3D1A2FFA93001C096A /* model */,
 				D2949C611A2FE135006B8D7D /* video.jpg */,
 				D2949C3C1A2FE0A3006B8D7D /* AppDelegate.h */,
 				D2949C3D1A2FE0A3006B8D7D /* AppDelegate.m */,
@@ -125,6 +129,15 @@
 				D2949C561A2FE0A4006B8D7D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2E96D3D1A2FFA93001C096A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D2E96D3E1A2FFABF001C096A /* LoginVC.h */,
+				D2E96D3F1A2FFABF001C096A /* LoginVC.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +243,7 @@
 			files = (
 				D2949C441A2FE0A3006B8D7D /* SecondViewController.m in Sources */,
 				D2949C3E1A2FE0A3006B8D7D /* AppDelegate.m in Sources */,
+				D2E96D401A2FFABF001C096A /* LoginVC.m in Sources */,
 				D2949C411A2FE0A3006B8D7D /* FirstViewController.m in Sources */,
 				D2949C3B1A2FE0A3006B8D7D /* main.m in Sources */,
 			);
@@ -422,6 +436,7 @@
 				D2949C5D1A2FE0A4006B8D7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2949C5E1A2FE0A4006B8D7D /* Build configuration list for PBXNativeTarget "whatsInMyRefrigeratorTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +445,7 @@
 				D2949C601A2FE0A4006B8D7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
