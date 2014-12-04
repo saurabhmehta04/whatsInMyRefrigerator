@@ -16,5 +16,6 @@
 -(IBAction)login:(id)sender;
 -(IBAction)signup:(id)sender;
 -(BOOL)checkpwd:(NSString *)usrid;
+-(void)this;
 
 @end
