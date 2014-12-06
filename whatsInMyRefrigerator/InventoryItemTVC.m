@@ -56,6 +56,57 @@
 }
 
 -(IBAction)AddingItem:(id)sender{
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:@"Add Product"
+                                 message:@"Choose how to add product"
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* scan = [UIAlertAction
+                         actionWithTitle:@"Scan"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    UIAlertAction* favourites = [UIAlertAction
+                         actionWithTitle:@"Favourites"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    UIAlertAction* add_manually = [UIAlertAction
+                         actionWithTitle:@"Add Manually"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleCancel
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    
+    
+    
+    [view addAction:scan];
+    [view addAction:favourites];
+    [view addAction:add_manually];
+    [view addAction:cancel];
+    [self presentViewController:view animated:YES completion:nil];
     NSLog(@"Item adding");
 }
 
