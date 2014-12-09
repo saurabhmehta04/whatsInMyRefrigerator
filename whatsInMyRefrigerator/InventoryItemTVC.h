@@ -6,12 +6,18 @@
 //  Copyright (c) 2014 -=fAlC0n=-. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+
 
 @interface InventoryItemTVC : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray *inventoryItemarr;
 
 -(IBAction)AddingItem:(id)sender;
+
+-(void) setupScanner;
 
 @end

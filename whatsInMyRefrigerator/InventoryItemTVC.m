@@ -7,6 +7,8 @@
 //
 
 #import "InventoryItemTVC.h"
+#import "cameraScanner.h"
+
 
 @interface InventoryItemTVC ()
 
@@ -66,7 +68,8 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
+                             cameraScanner *viewController = [[cameraScanner alloc]  init];
+                             [self.navigationController pushViewController:viewController animated:YES];
                              [view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
@@ -86,7 +89,7 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
+
                              [view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
@@ -109,6 +112,7 @@
     [self presentViewController:view animated:YES completion:nil];
     NSLog(@"Item adding");
 }
+
 
 /*
 // Override to support conditional editing of the table view.

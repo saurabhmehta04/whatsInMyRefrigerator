@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984101A3372600044F4EA /* InventoryTVC.m */; };
 		3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984131A337FB90044F4EA /* InventoryItemTVC.m */; };
+		D2919E0C1A378177005A046C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0A1A378177005A046C /* AVFoundation.framework */; };
+		D2919E0F1A3784E7005A046C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0E1A3784E7005A046C /* Foundation.framework */; };
+		D2919E111A378515005A046C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E101A378515005A046C /* CoreGraphics.framework */; };
+		D2919E131A37851E005A046C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E121A37851E005A046C /* UIKit.framework */; };
+		D2919E151A378527005A046C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E141A378527005A046C /* QuartzCore.framework */; };
+		D2919E181A37856A005A046C /* cameraScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D2919E171A37856A005A046C /* cameraScanner.m */; };
 		D2949C3B1A2FE0A3006B8D7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2949C3A1A2FE0A3006B8D7D /* main.m */; };
 		D2949C3E1A2FE0A3006B8D7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2949C3D1A2FE0A3006B8D7D /* AppDelegate.m */; };
 		D2949C411A2FE0A3006B8D7D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2949C401A2FE0A3006B8D7D /* FirstViewController.m */; };
@@ -36,6 +42,14 @@
 		3F7984101A3372600044F4EA /* InventoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryTVC.m; sourceTree = "<group>"; };
 		3F7984121A337FB90044F4EA /* InventoryItemTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItemTVC.h; sourceTree = "<group>"; };
 		3F7984131A337FB90044F4EA /* InventoryItemTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryItemTVC.m; sourceTree = "<group>"; };
+		D2919E0A1A378177005A046C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D2919E0B1A378177005A046C /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		D2919E0E1A3784E7005A046C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2919E101A378515005A046C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D2919E121A37851E005A046C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D2919E141A378527005A046C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D2919E161A37856A005A046C /* cameraScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraScanner.h; sourceTree = "<group>"; };
+		D2919E171A37856A005A046C /* cameraScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraScanner.m; sourceTree = "<group>"; };
 		D2949C351A2FE0A3006B8D7D /* whatsInMyRefrigerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsInMyRefrigerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2949C391A2FE0A3006B8D7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2949C3A1A2FE0A3006B8D7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +75,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2919E151A378527005A046C /* QuartzCore.framework in Frameworks */,
+				D2919E131A37851E005A046C /* UIKit.framework in Frameworks */,
+				D2919E111A378515005A046C /* CoreGraphics.framework in Frameworks */,
+				D2919E0F1A3784E7005A046C /* Foundation.framework in Frameworks */,
+				D2919E0C1A378177005A046C /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +96,12 @@
 		D2949C2C1A2FE0A3006B8D7D = {
 			isa = PBXGroup;
 			children = (
+				D2919E141A378527005A046C /* QuartzCore.framework */,
+				D2919E121A37851E005A046C /* UIKit.framework */,
+				D2919E101A378515005A046C /* CoreGraphics.framework */,
+				D2919E0E1A3784E7005A046C /* Foundation.framework */,
+				D2919E0A1A378177005A046C /* AVFoundation.framework */,
+				D2919E0B1A378177005A046C /* AVKit.framework */,
 				D2949C371A2FE0A3006B8D7D /* whatsInMyRefrigerator */,
 				D2949C541A2FE0A4006B8D7D /* whatsInMyRefrigeratorTests */,
 				D2949C361A2FE0A3006B8D7D /* Products */,
@@ -146,6 +171,8 @@
 				D2E96D3F1A2FFABF001C096A /* LoginVC.m */,
 				3F7984121A337FB90044F4EA /* InventoryItemTVC.h */,
 				3F7984131A337FB90044F4EA /* InventoryItemTVC.m */,
+				D2919E161A37856A005A046C /* cameraScanner.h */,
+				D2919E171A37856A005A046C /* cameraScanner.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -256,6 +283,7 @@
 				D2949C3E1A2FE0A3006B8D7D /* AppDelegate.m in Sources */,
 				3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */,
 				D2E96D401A2FFABF001C096A /* LoginVC.m in Sources */,
+				D2919E181A37856A005A046C /* cameraScanner.m in Sources */,
 				D2949C411A2FE0A3006B8D7D /* FirstViewController.m in Sources */,
 				D2949C3B1A2FE0A3006B8D7D /* main.m in Sources */,
 			);

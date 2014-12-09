@@ -4,6 +4,26 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="Eys-h8-bx3">
+            <objects>
+                <viewController id="Jc6-Qg-gJm" customClass="cameraScanner" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FMA-aB-Ah8"/>
+                        <viewControllerLayoutGuide type="bottom" id="2nn-2X-Nhn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QV8-7b-fkb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Fid-Oq-qHO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghJ-e1-tdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705.5" y="1929.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -241,6 +261,7 @@
                         <segue destination="6qL-D8-w0j" kind="relationship" relationship="viewControllers" id="Kcd-CT-Oph"/>
                         <segue destination="KRq-HB-eIW" kind="relationship" relationship="viewControllers" id="w36-Pc-0hq"/>
                         <segue destination="MBt-pz-L6B" kind="relationship" relationship="viewControllers" id="J4o-YK-Srt"/>
+                        <segue destination="Jc6-Qg-gJm" kind="relationship" relationship="viewControllers" id="OpB-33-GVM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8h-S4-bnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
