@@ -24,6 +24,22 @@
 
 @implementation cameraScanner
 
+
+//getting the product details from the barcode
+-(void)productInfo: (NSString *)productId {
+    
+//    responseData = [[NSMutableData alloc]init];
+    NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
+    
+    NSLog(@"%@", restAPI);
+//    
+//    NSURL *url = [[NSURL alloc] initWithString:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode="0028400005753""];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"accept"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    (void)[NSURLConnection connectionWithRequest:req delegate:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -95,10 +111,15 @@
         if (detectionString != nil)
         {
             _label.text = detectionString;
-//            NSLog(@"Label is => %@", _label.text);
-            if ([_label.text  isEqual: @"0850006000012"]) {
-                _label.text = @"Cookie";
-            }
+//            to test: munchies 0028400005753
+            http://www.outpan.com/api/get-product.php?apikey="be47fc0d96934ca9004100223e9ba7ba"&barcode="0028400005753"
+            
+            [self productInfo:_label.text];
+            
+            
+//            if ([_label.text  isEqual: @"0850006000012"]) {
+//                _label.text = @"Cookie";
+//            }
             break;
         }
         else
@@ -108,5 +129,9 @@
     
     _highlightView.frame = highlightViewRect;
 }
+
+
+
+
 
 @end
