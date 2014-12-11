@@ -437,7 +437,6 @@
                                 </state>
                                 <connections>
                                     <action selector="AddingItem:" destination="gzO-MR-zK7" eventType="touchUpInside" id="Qx0-3T-4Ya"/>
-                                    <segue destination="LBS-9C-MFj" kind="push" id="W8p-hI-fUR"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -447,58 +446,16 @@
             </objects>
             <point key="canvasLocation" x="2110.5" y="1161"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="xoV-Jb-4D9">
-            <objects>
-                <viewController id="LBS-9C-MFj" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3yY-Ic-gan"/>
-                        <viewControllerLayoutGuide type="bottom" id="bjH-Y8-mIR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZDs-yq-p2T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="660"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AO-Wm-7dq">
-                                <rect key="frame" x="124" y="219" width="126" height="44"/>
-                                <state key="normal" title="Using Barcode">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUp-kd-hVB">
-                                <rect key="frame" x="129" y="311" width="116" height="38"/>
-                                <state key="normal" title="From Favourites">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI7-4z-11e">
-                                <rect key="frame" x="152" y="393" width="70" height="38"/>
-                                <state key="normal" title="Manually">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="TvB-HE-zLP" kind="push" id="FGi-BG-2D3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="omT-Xb-igd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CBJ-Tf-j5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2623.5" y="762"/>
-        </scene>
-        <!--View Controller-->
+        <!--Product Info-->
         <scene sceneID="haU-l4-mTi">
             <objects>
-                <viewController id="TvB-HE-zLP" sceneMemberID="viewController">
+                <viewController id="TvB-HE-zLP" customClass="productInfo" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vsv-MO-OxH"/>
                         <viewControllerLayoutGuide type="bottom" id="Klj-V8-ecB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i0L-Bd-cXo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="660"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSq-l8-5Wg">
@@ -566,10 +523,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="O5z-pe-dLP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="productTitle" destination="0vJ-Ad-3az" id="xQJ-lV-ghG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkV-Xf-05k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3041.5" y="762"/>
+            <point key="canvasLocation" x="2631.5" y="1164.5"/>
         </scene>
     </scenes>
     <resources>

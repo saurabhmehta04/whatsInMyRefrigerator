@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InventoryItemTVC.h"
+#import "productInfo.h"
 
-@interface cameraScanner : UIViewController
+@interface cameraScanner : UIViewController 
+
+@property(nonatomic, strong)NSString *productTitle;
+
+//
+//-(void)setProductTitle:(NSString *)productTitle;
+//-(NSString *)productTitle:(NSString *)scannedTitle;
 
 @end

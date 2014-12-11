@@ -24,6 +24,10 @@
 
 @implementation cameraScanner
 
+//@synthesize productTitle;
+
+
+
 
 //getting the product details from the barcode
 -(void)productInfo: (NSString *)productId {
@@ -41,7 +45,10 @@
 
             NSError *error;
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSDictionary *title = jsonDict[@"name"];
+            NSString *title = jsonDict[@"name"];
+            
+//            [self setProductTitle:title];
+            
             NSLog(@"Product name : %@", title);
             
         }
@@ -52,7 +59,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self flashlight];
     _highlightView = [[UIView alloc] init];
     _highlightView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
     _highlightView.layer.borderColor = [UIColor greenColor].CGColor;
@@ -99,6 +106,8 @@
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
+    
+
     CGRect highlightViewRect = CGRectZero;
     AVMetadataMachineReadableCodeObject *barCodeObject;
     NSString *detectionString = nil;
@@ -122,6 +131,11 @@
             _label.text = detectionString;
 //            0028400005753
             [self productInfo:_label.text];
+//            [self setProductTitle:_label.text];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self dismissViewControllerAnimated:YES completion:nil];
+
             break;
         }
         else
@@ -134,6 +148,25 @@
 
 
 
-
+//to toggle flashLight while scanning
+- (void) flashlight
+{
+    NSLog(@"In flashlight");
+    
+    AVCaptureDevice *flashLight = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if ([flashLight isTorchAvailable] && [flashLight isTorchModeSupported:AVCaptureTorchModeOn])
+    {
+        BOOL success = [flashLight lockForConfiguration:nil];
+        if (success)
+        {
+            if ([flashLight isTorchActive]) {
+                [flashLight setTorchMode:AVCaptureTorchModeOff];
+            } else {
+                [flashLight setTorchMode:AVCaptureTorchModeOn];
+            }
+            [flashLight unlockForConfiguration];
+        }
+    }
+}
 
 @end
