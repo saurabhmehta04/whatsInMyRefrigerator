@@ -28,16 +28,32 @@
 //getting the product details from the barcode
 -(void)productInfo: (NSString *)productId {
     
-//    responseData = [[NSMutableData alloc]init];
     NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
-    
     NSLog(@"%@", restAPI);
-//    
-//    NSURL *url = [[NSURL alloc] initWithString:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode="0028400005753""];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"accept"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    (void)[NSURLConnection connectionWithRequest:req delegate:self];
+    NSURL *url = [[NSURL alloc] initWithString:restAPI];
+    
+    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error) {
+//            [self.delegate fetchingGroupsFailedWithError:error];
+            NSLog(@" Error");
+        } else {
+//            [self.delegate receivedGroupsJSON:data];
+            NSLog(@"Data recieved");
+            NSError *error;
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            NSLog(@"%@", jsonDict);
+            
+//            
+//            NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//            NSLog(@"%@", strData);
+            
+            NSDictionary *title = jsonDict[@"name"];
+            NSLog(@"Product name : %@", title);
+            
+        }
+    }];
+ 
 }
 
 - (void)viewDidLoad
@@ -111,15 +127,8 @@
         if (detectionString != nil)
         {
             _label.text = detectionString;
-//            to test: munchies 0028400005753
-            http://www.outpan.com/api/get-product.php?apikey="be47fc0d96934ca9004100223e9ba7ba"&barcode="0028400005753"
-            
+//            0028400005753
             [self productInfo:_label.text];
-            
-            
-//            if ([_label.text  isEqual: @"0850006000012"]) {
-//                _label.text = @"Cookie";
-//            }
             break;
         }
         else

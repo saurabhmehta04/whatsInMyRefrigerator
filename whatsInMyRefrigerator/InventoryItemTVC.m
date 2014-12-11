@@ -70,6 +70,7 @@
                          {
                              cameraScanner *viewController = [[cameraScanner alloc]  init];
                              [self.navigationController pushViewController:viewController animated:YES];
+                             NSLog(@"In scan UIAlertAction");
                              [view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
