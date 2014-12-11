@@ -61,6 +61,7 @@
     [super viewDidLoad];
     [self flashlight];
     _highlightView = [[UIView alloc] init];
+    
     _highlightView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
     _highlightView.layer.borderColor = [UIColor greenColor].CGColor;
     _highlightView.layer.borderWidth = 3;
@@ -102,6 +103,8 @@
     
     [self.view bringSubviewToFront:_highlightView];
     [self.view bringSubviewToFront:_label];
+    
+
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
@@ -131,10 +134,17 @@
             _label.text = detectionString;
 //            0028400005753
             [self productInfo:_label.text];
-//            [self setProductTitle:_label.text];
+            productInfo *viewController = [[productInfo alloc]  init];
+//            [self.navigationController showViewController:view sender:<#(id)#>:viewController animated:YES];
+            [self.navigationController showViewController:viewController sender:nil];
+//            [self.navigationController popViewControllerAnimated:YES];
             
-            [self.navigationController popViewControllerAnimated:YES];
-//            [self dismissViewControllerAnimated:YES completion:nil];
+            
+//            productInfo *viewController = [[productInfo alloc]  init];
+//            
+//            viewController.productTitle.text = _label.text;
+            
+//            [self.navigationController pushViewController:viewController animated:YES];
 
             break;
         }
@@ -151,7 +161,7 @@
 //to toggle flashLight while scanning
 - (void) flashlight
 {
-    NSLog(@"In flashlight");
+    NSLog(@"Turning on flashlight...");
     
     AVCaptureDevice *flashLight = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if ([flashLight isTorchAvailable] && [flashLight isTorchModeSupported:AVCaptureTorchModeOn])
@@ -167,6 +177,8 @@
             [flashLight unlockForConfiguration];
         }
     }
+    
 }
+
 
 @end

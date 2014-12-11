@@ -68,10 +68,16 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             cameraScanner *viewController = [[cameraScanner alloc]  init];
+                             cameraScanner *viewController = [[cameraScanner alloc]init];
+//                             [self presentViewController:viewController animated:YES completion:nil];
+                             
                              [self.navigationController pushViewController:viewController animated:YES];
+                             
                              NSLog(@"In scan UIAlertAction");
-                             [view dismissViewControllerAnimated:YES completion:nil];
+//                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                             
+                             
                              
                          }];
     

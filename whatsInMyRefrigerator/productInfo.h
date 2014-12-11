@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface productInfo : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *productTitle;
+
 
 @end

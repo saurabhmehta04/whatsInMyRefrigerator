@@ -12,7 +12,6 @@
 
 @interface cameraScanner : UIViewController 
 
-@property(nonatomic, strong)NSString *productTitle;
 
 //
 //-(void)setProductTitle:(NSString *)productTitle;
