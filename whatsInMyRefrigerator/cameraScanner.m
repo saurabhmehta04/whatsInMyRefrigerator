@@ -29,25 +29,18 @@
 -(void)productInfo: (NSString *)productId {
     
     NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
-    NSLog(@"%@", restAPI);
     NSURL *url = [[NSURL alloc] initWithString:restAPI];
     
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if (error) {
-//            [self.delegate fetchingGroupsFailedWithError:error];
+
             NSLog(@" Error");
         } else {
-//            [self.delegate receivedGroupsJSON:data];
-            NSLog(@"Data recieved");
+
+
             NSError *error;
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSLog(@"%@", jsonDict);
-            
-//            
-//            NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//            NSLog(@"%@", strData);
-            
             NSDictionary *title = jsonDict[@"name"];
             NSLog(@"Product name : %@", title);
             
