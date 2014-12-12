@@ -19,6 +19,8 @@
     
     UIView *_highlightView;
     UILabel *_label;
+    BOOL done;
+    
 }
 @end
 
@@ -50,7 +52,9 @@
 //            [self setProductTitle:title];
             
             NSLog(@"Product name : %@", title);
+            //productInfo *prd = [[productInfo alloc] init];
             
+
         }
     }];
  
@@ -60,6 +64,7 @@
 {
     [super viewDidLoad];
     [self flashlight];
+    done = YES;
     _highlightView = [[UIView alloc] init];
     
     _highlightView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
@@ -89,6 +94,8 @@
     }
     
     _output = [[AVCaptureMetadataOutput alloc] init];
+    
+    
     [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     [_session addOutput:_output];
     
@@ -107,10 +114,22 @@
 
 }
 
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     
-
+    if(!done){
+        //[self dismissViewControllerAnimated:YES completion:nil];
+        [_session stopRunning];
+        [self productInfo:self.string];
+        //[self.navigationController showViewController:self.parentViewController sender:self];
+        //NSLog(@"ET");
+        
+        //productInfo *prd = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
+        //[self.navigationController pushViewController:prd animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
     CGRect highlightViewRect = CGRectZero;
     AVMetadataMachineReadableCodeObject *barCodeObject;
     NSString *detectionString = nil;
@@ -129,16 +148,17 @@
             }
         }
         
+        
         if (detectionString != nil)
         {
-            _label.text = detectionString;
-//            0028400005753
-            [self productInfo:_label.text];
-            productInfo *viewController = [[productInfo alloc]  init];
-//            [self.navigationController showViewController:view sender:<#(id)#>:viewController animated:YES];
-            [self.navigationController showViewController:viewController sender:nil];
-//            [self.navigationController popViewControllerAnimated:YES];
-            
+            self.string = detectionString;
+           //[self cALLING:detectionString];
+
+                //[self.navigationController popViewControllerAnimated:YES];
+            //NSLog(@"Calling Multiple");
+//            NSLog(@"NAV PAre:%@",self.parentViewController.title);
+            done=NO;
+            //[self.navigationController pushViewController:viewController animated:YES];
             
 //            productInfo *viewController = [[productInfo alloc]  init];
 //            
@@ -146,14 +166,16 @@
             
 //            [self.navigationController pushViewController:viewController animated:YES];
 
-            break;
+           break;
         }
-        else
+        else{
             _label.text = @"(none)";
             NSLog(@"Label is => %@", _label.text);
-    }
+        }
+   }
     
     _highlightView.frame = highlightViewRect;
+    }
 }
 
 

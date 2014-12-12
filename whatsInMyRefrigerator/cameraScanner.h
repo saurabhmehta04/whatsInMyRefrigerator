@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "InventoryItemTVC.h"
-#import "productInfo.h"
+#import "productVC.h"
 
-@interface cameraScanner : UIViewController 
+@interface cameraScanner : UIViewController
+@property (nonatomic, strong) NSString *string;
 
 
 //

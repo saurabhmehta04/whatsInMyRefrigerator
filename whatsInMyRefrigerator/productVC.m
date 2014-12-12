@@ -1,35 +1,26 @@
 //
-//  productInfo.m
+//  productVC.m
 //  whatsInMyRefrigerator
 //
 //  Created by -=fAlC0n=- on 12/11/14.
 //  Copyright (c) 2014 -=fAlC0n=-. All rights reserved.
 //
 
-#import "productInfo.h"
+#import "productVC.h"
 
-@interface productInfo ()
+@interface productVC ()
 
 @end
 
-@implementation productInfo
-
-
-/*-(id)init{
-    NSLog(@"INIT");
-    if(!self){
-        self = [super init];
-    }
-    NSLog(@"Atr Init");
-    return self;
-}
-
-*/
+@implementation productVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"Product");
+    UIView *view = self.view;
+    NSLog(@"Views: %@",[[[[[UIApplication sharedApplication]windows]lastObject]subviews]lastObject]);
     
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

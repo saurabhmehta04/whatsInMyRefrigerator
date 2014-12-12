@@ -8,6 +8,7 @@
 
 #import "InventoryItemTVC.h"
 #import "cameraScanner.h"
+#import "productVC.h"
 
 
 @interface InventoryItemTVC ()
@@ -18,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -68,10 +68,10 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             cameraScanner *viewController = [[cameraScanner alloc]init];
+                             cameraScanner *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
 //                             [self presentViewController:viewController animated:YES completion:nil];
-                             
-                             [self.navigationController pushViewController:viewController animated:YES];
+                             [self performSegueWithIdentifier:@"camera" sender:self];
+                             //[self.navigationController pushViewController:viewController animated:YES];
                              
                              NSLog(@"In scan UIAlertAction");
 //                             [view dismissViewControllerAnimated:YES completion:nil];
@@ -96,8 +96,14 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             
-                             [view dismissViewControllerAnimated:YES completion:nil];
+                             //productVC *prod = [[productVC alloc]init];
+                             productVC *view = [[productVC alloc]init];
+                             view = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
+                             [self performSegueWithIdentifier:@"product" sender:self];
+                             //[self.navigationController performSegueWithIdentifier:@"product" sender:sender];
+                             //[self.navigationController showViewController:prod sender:sender];
+                             //[self.navigationController pushViewController:prod animated:YES];
+                             //[view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
     UIAlertAction* cancel = [UIAlertAction
@@ -119,6 +125,14 @@
     [self presentViewController:view animated:YES completion:nil];
     NSLog(@"Item adding");
 }
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    NSLog(@"ACT NAmweqwsas");
+    UIAlertAction *act = (UIAlertAction *)sender;
+    NSLog(@"ACT Name:%@",act.title);
+    return YES;
+}
+
 
 
 /*
@@ -154,15 +168,38 @@
     return YES;
 }
 */
-
 /*
+-(void) viewWillAppear:(BOOL)animated{
+    NSLog(@"Will");
+}
+*/
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"DATA1 Segue");
+    if([segue.identifier isEqualToString:@"camera"]){
+        NSLog(@"Scan");
+    }else if ([segue.identifier isEqualToString:@"product"]){
+        productVC *view = segue.destinationViewController;  
+    }
 }
+/*
+-(void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    NSLog(@"DATA2 Segue");
+    if([identifier isEqualToString:@"camera"]){
+        NSLog(@"Scan");
+        cameraScanner *view = [[cameraScanner alloc]init];
+    }else if ([identifier isEqualToString:@"product"]){
+        NSLog(@"Product");
+        productVC *view = [[productVC alloc]init];
+    }
+    
+}
+
 */
 
 @end

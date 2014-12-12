@@ -1,5 +1,5 @@
 //
-//  productInfo.h
+//  productVC.h
 //  whatsInMyRefrigerator
 //
 //  Created by -=fAlC0n=- on 12/11/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface productInfo : UIViewController
+@interface productVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *productTitle;
 @property (weak, nonatomic) IBOutlet UITextField *qty;
