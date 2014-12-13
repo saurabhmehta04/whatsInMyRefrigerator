@@ -27,7 +27,7 @@
 //        NSLog(@"text");
 //    }
 //    else if()
-    NSLog(@"SEnder: %@",txt.placeholder);
+    //NSLog(@"SEnder: %@",txt.placeholder);
 }
 
 - (void)viewDidLoad {
