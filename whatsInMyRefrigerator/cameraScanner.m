@@ -20,20 +20,21 @@
     UIView *_highlightView;
     UILabel *_label;
     BOOL done;
-    
+    NSString *testString;
 }
 @end
 
 @implementation cameraScanner
 
-//@synthesize productTitle;
+@synthesize productTitleAndWeight; //NSArray
+//@synthesize productTitle; //NSString
 
 
 
 
 //getting the product details from the barcode
 -(void)productInfo: (NSString *)productId {
-    
+    //testString = @"Some";
     NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
     NSURL *url = [[NSURL alloc] initWithString:restAPI];
     
@@ -43,23 +44,52 @@
 
             NSLog(@" Error");
         } else {
-
-
             NSError *error;
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSString *title = jsonDict[@"name"];
+            productTitleAndWeight = [title componentsSeparatedByString:@","];
+            self.productTitle =[productTitleAndWeight objectAtIndex:0];
             
-//            [self setProductTitle:title];
+            //testString = [productTitleAndWeight objectAtIndex:0];
+//            [self setProductTitle:productTitle];
             
-            NSLog(@"Product name : %@", title);
             
-            productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
-            [self.navigationController pushViewController:view animated:YES];
-            
-
+            NSLog(@"title within the NSURL Connection => %@", self.productTitle);
+            NSLog(@"qwertyest1: %@",self.productTitle);
+            CFRunLoopStop(CFRunLoopGetCurrent());
         }
     }];
- 
+
+    while (self.productTitle.length==0) {
+        CFRunLoopRun();
+    }
+    if(self.productTitle.length>0){
+        NSLog(@"Value1: %@",self.productTitle);
+    }else{
+        NSLog(@"Value2: %@",self.productTitle);
+        CFRunLoopRun();
+    }
+    
+    
+    
+    /*
+    
+    productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+    if ([testString isEqualToString:@"Some"] ) {
+        NSLog(@"tyest: %@",testString);
+        CFRunLoopRun();
+    }else{
+         NSLog(@"qwertyest: %@",testString);
+        CFRunLoopStop(CFRunLoopGetCurrent());
+    
+    }
+    view.productTitleFromCameraScanner = [self productTitle];
+//    NSLog(@".............. > %@", [self productTitle]);
+    NSLog(@".............. > %@", testString);
+    
+//    NSLog(@"==================== > %@", view.productTitleFromCameraScanner);
+    [self.navigationController pushViewController:view animated:YES];*/
+
 }
 
 - (void)viewDidLoad
@@ -124,14 +154,10 @@
         //[self dismissViewControllerAnimated:YES completion:nil];
         [_session stopRunning];
         [self productInfo:self.string];
-        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
-        [self.navigationController pushViewController:view animated:YES];
-        //[self.navigationController showViewController:self.parentViewController sender:self];
-        //NSLog(@"ET");
         
-        //productInfo *prd = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
-        //[self.navigationController pushViewController:prd animated:YES];
-//        [self.navigationController popViewControllerAnimated:YES];
+//        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+//        [self.navigationController pushViewController:view animated:YES];
+        
     }
     else{
     CGRect highlightViewRect = CGRectZero;
@@ -152,7 +178,6 @@
             }
         }
         
-        
         if (detectionString != nil)
         {
             self.string = detectionString;
@@ -169,6 +194,8 @@
 //            viewController.productTitle.text = _label.text;
             
 //            [self.navigationController pushViewController:viewController animated:YES];
+            _label.text = self.string;
+            NSLog(@"Label is => %@", _label.text);
 
            break;
         }

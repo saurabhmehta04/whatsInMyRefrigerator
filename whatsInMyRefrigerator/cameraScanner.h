@@ -10,12 +10,12 @@
 #import "InventoryItemTVC.h"
 #import "productVC.h"
 
-@interface cameraScanner : UIViewController
+@interface cameraScanner : UIViewController {
+//    NSString *productTitle;
+}
 @property (nonatomic, strong) NSString *string;
+@property (nonatomic, strong) NSArray *productTitleAndWeight;
+@property (nonatomic, strong) NSString *productTitle;
 
-
-//
-//-(void)setProductTitle:(NSString *)productTitle;
-//-(NSString *)productTitle:(NSString *)scannedTitle;
 
 @end

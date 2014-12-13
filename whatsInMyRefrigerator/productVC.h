@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "cameraScanner.h"
 
 @interface productVC : UIViewController
 
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *qtytype;
 @property (weak, nonatomic) IBOutlet UITextField *pdate;
 @property (weak, nonatomic) IBOutlet UITextField *edate;
+
+@property(nonatomic, retain) NSString *productTitleFromCameraScanner;
 
 -(IBAction)submit:(id)sender;
 

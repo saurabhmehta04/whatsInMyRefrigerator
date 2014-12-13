@@ -14,13 +14,15 @@
 
 @implementation productVC
 
+@synthesize productTitle;
+@synthesize productTitleFromCameraScanner;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Product");
-//    UIView *view = self.view;
-//    NSLog(@"Views: %@",[[[[[UIApplication sharedApplication]windows]lastObject]subviews]lastObject]);
+    NSLog(@"String value %@", productTitleFromCameraScanner);
     
-    // Do any additional setup after loading the view.
+        productTitle.text = productTitleFromCameraScanner;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,14 +34,22 @@
     NSLog(@"Submit button clicked");
 }
 
-/*
-#pragma mark - Navigation
+//-(id)initWithCoder:(NSCoder *)aDecoder {
+//    cameraScanner *controller = [[cameraScanner alloc]init];
+//    NSLog(@"in productVC => %@", controller.productTitle);
+//    productTitle.text = controller.productTitle;
+//
+//}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+//- (id)initWithCoder:(NSCoder *)inCoder {
+//    if (self = [super initWithCoder:inCoder]) {
+//        
+//        productTitle.text = @"This is from initWithCoder";
+//        NSLog(@"I am here");
+//        
+//    }
+//    return self;
+//}
 
 @end
