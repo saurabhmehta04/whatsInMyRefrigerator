@@ -52,7 +52,9 @@
 //            [self setProductTitle:title];
             
             NSLog(@"Product name : %@", title);
-            //productInfo *prd = [[productInfo alloc] init];
+            
+            productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+            [self.navigationController pushViewController:view animated:YES];
             
 
         }
@@ -130,7 +132,7 @@
         
         //productInfo *prd = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
         //[self.navigationController pushViewController:prd animated:YES];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
     }
     else{
     CGRect highlightViewRect = CGRectZero;

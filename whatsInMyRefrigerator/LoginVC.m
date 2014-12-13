@@ -19,8 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    cameraScanner *view = [self.storyboard instantiateInitialViewController:@"camera"];
-    productVC *prod = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
+//    cameraScanner *view = [self.storyboard instantiateInitialViewController:@"camera"];
+//    productVC *prod = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
     
     NSLog(@"This is test");
     

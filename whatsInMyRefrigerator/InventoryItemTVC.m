@@ -68,14 +68,13 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             cameraScanner *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
-//                             [self presentViewController:viewController animated:YES completion:nil];
-                             [self performSegueWithIdentifier:@"camera" sender:self];
-                             //[self.navigationController pushViewController:viewController animated:YES];
+                             cameraScanner *viewController = [[cameraScanner alloc]init];
                              
+                             [self.navigationController pushViewController:viewController animated:YES];
                              NSLog(@"In scan UIAlertAction");
-//                             [view dismissViewControllerAnimated:YES completion:nil];
-                             
+//                             productVC *view = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
+//                             [self.navigationController pushViewController:view animated:YES];
+
                              
                              
                              

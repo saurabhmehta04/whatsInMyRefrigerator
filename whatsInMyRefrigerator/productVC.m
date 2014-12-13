@@ -17,8 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Product");
-    UIView *view = self.view;
-    NSLog(@"Views: %@",[[[[[UIApplication sharedApplication]windows]lastObject]subviews]lastObject]);
+//    UIView *view = self.view;
+//    NSLog(@"Views: %@",[[[[[UIApplication sharedApplication]windows]lastObject]subviews]lastObject]);
     
     // Do any additional setup after loading the view.
 }
@@ -26,6 +26,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)submit:(id)sender {
+    NSLog(@"Submit button clicked");
 }
 
 /*
