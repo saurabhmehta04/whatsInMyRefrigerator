@@ -74,6 +74,11 @@
                              [self.navigationController pushViewController:view animated:YES];
                              
                              NSLog(@"In scan UIAlertAction");
+                             //                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                             
+                             
+                             
                              
                          }];
     
