@@ -122,15 +122,14 @@
         //[self dismissViewControllerAnimated:YES completion:nil];
         [_session stopRunning];
         [self productInfo:self.string];
-        productVC *view = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
-        
+        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
         [self.navigationController pushViewController:view animated:YES];
         //[self.navigationController showViewController:self.parentViewController sender:self];
         //NSLog(@"ET");
         
         //productInfo *prd = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
         //[self.navigationController pushViewController:prd animated:YES];
-        [self.navigationController popViewControllerAnimated:YES];
+        //[self.navigationController popViewControllerAnimated:YES];
     }
     else{
     CGRect highlightViewRect = CGRectZero;
