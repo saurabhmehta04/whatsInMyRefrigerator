@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="170.5" y="348"/>
         </scene>
-        <!--View Controller-->
+        <!--SubmitVC-->
         <scene sceneID="ngP-V5-lv1">
             <objects>
-                <viewController id="OM1-FW-ZrP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="submit" id="OM1-FW-ZrP" customClass="SubmitVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lkp-a0-sYi"/>
                         <viewControllerLayoutGuide type="bottom" id="qdn-DH-Ycm"/>
@@ -156,25 +156,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-IK-CAQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="cfmpassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-IK-CAQ">
                                 <rect key="frame" x="172" y="167" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="check:" destination="OM1-FW-ZrP" eventType="editingDidEnd" id="yC3-yL-Jxs"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhW-6n-Gha">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhW-6n-Gha">
                                 <rect key="frame" x="172" y="228" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="check:" destination="OM1-FW-ZrP" eventType="editingDidEnd" id="NpG-kp-C8p"/>
+                                    <action selector="check:" destination="OM1-FW-ZrP" eventType="editingChanged" id="ZXJ-Ze-dvF"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-eZ-lo6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSe-eZ-lo6">
                                 <rect key="frame" x="172" y="109" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N2Q-MN-zhj">
-                                <rect key="frame" x="172" y="48" width="150" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="check:" destination="OM1-FW-ZrP" eventType="editingDidEnd" id="oNs-MD-50m"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-pm-p7H">
                                 <rect key="frame" x="157" y="314" width="61" height="31"/>
@@ -199,9 +204,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="username" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N2Q-MN-zhj" userLabel="Usr">
+                                <rect key="frame" x="172" y="48" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="check:" destination="OM1-FW-ZrP" eventType="editingDidEnd" id="oDZ-Y8-9gr"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cfmpwd" destination="8pY-IK-CAQ" id="kKf-OM-bmd"/>
+                        <outlet property="emid" destination="HhW-6n-Gha" id="9kw-gF-hkF"/>
+                        <outlet property="pwd" destination="qSe-eZ-lo6" id="ZdD-eJ-alV"/>
+                        <outlet property="usr" destination="N2Q-MN-zhj" id="ggi-YT-LcB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1C-J7-02G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -547,6 +566,6 @@
         <image name="video.jpg" width="550" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FAa-cc-Qaf"/>
+        <segue reference="58o-3W-zkF"/>
     </inferredMetricsTieBreakers>
 </document>

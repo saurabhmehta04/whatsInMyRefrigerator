@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6C09061A3CC2F700214664 /* Middlelayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C09031A3CC2F700214664 /* Middlelayer.m */; };
+		3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C09051A3CC2F700214664 /* SubmitVC.m */; };
 		3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984101A3372600044F4EA /* InventoryTVC.m */; };
 		3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984131A337FB90044F4EA /* InventoryItemTVC.m */; };
 		D2919E0C1A378177005A046C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0A1A378177005A046C /* AVFoundation.framework */; };
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F6C09021A3CC2F700214664 /* Middlelayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Middlelayer.h; sourceTree = "<group>"; };
+		3F6C09031A3CC2F700214664 /* Middlelayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Middlelayer.m; sourceTree = "<group>"; };
+		3F6C09041A3CC2F700214664 /* SubmitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitVC.h; sourceTree = "<group>"; };
+		3F6C09051A3CC2F700214664 /* SubmitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitVC.m; sourceTree = "<group>"; };
 		3F79840F1A3372600044F4EA /* InventoryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryTVC.h; sourceTree = "<group>"; };
 		3F7984101A3372600044F4EA /* InventoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryTVC.m; sourceTree = "<group>"; };
 		3F7984121A337FB90044F4EA /* InventoryItemTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItemTVC.h; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 		D2E96D3D1A2FFA93001C096A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3F6C09021A3CC2F700214664 /* Middlelayer.h */,
+				3F6C09031A3CC2F700214664 /* Middlelayer.m */,
+				3F6C09041A3CC2F700214664 /* SubmitVC.h */,
+				3F6C09051A3CC2F700214664 /* SubmitVC.m */,
 				3F79840F1A3372600044F4EA /* InventoryTVC.h */,
 				3F7984101A3372600044F4EA /* InventoryTVC.m */,
 				D2E96D3E1A2FFABF001C096A /* LoginVC.h */,
@@ -289,9 +299,11 @@
 				D2949C441A2FE0A3006B8D7D /* SecondViewController.m in Sources */,
 				D2949C3E1A2FE0A3006B8D7D /* AppDelegate.m in Sources */,
 				3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */,
+				3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */,
 				D2E96D401A2FFABF001C096A /* LoginVC.m in Sources */,
 				D2919E181A37856A005A046C /* cameraScanner.m in Sources */,
 				D2949C411A2FE0A3006B8D7D /* FirstViewController.m in Sources */,
+				3F6C09061A3CC2F700214664 /* Middlelayer.m in Sources */,
 				D2949C3B1A2FE0A3006B8D7D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
