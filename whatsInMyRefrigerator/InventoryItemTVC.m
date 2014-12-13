@@ -97,12 +97,12 @@
                          handler:^(UIAlertAction * action)
                          {
                              //productVC *prod = [[productVC alloc]init];
-                             productVC *view = [[productVC alloc]init];
-                             view = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
-                             [self performSegueWithIdentifier:@"product" sender:self];
+                             productVC *view = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
+                             [self.navigationController pushViewController:view animated:YES];
+                             //[self performSegueWithIdentifier:@"product" sender:self];
                              //[self.navigationController performSegueWithIdentifier:@"product" sender:sender];
                              //[self.navigationController showViewController:prod sender:sender];
-                             //[self.navigationController pushViewController:prod animated:YES];
+                             
                              //[view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
