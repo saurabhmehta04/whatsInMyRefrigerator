@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "cameraScanner.h"
+#import "Middlelayer.h"
 
 @interface cameraScanner () <AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -36,60 +37,21 @@
 -(void)productInfo: (NSString *)productId {
     //testString = @"Some";
     NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
-    NSURL *url = [[NSURL alloc] initWithString:restAPI];
+
     
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        if (error) {
-
-            NSLog(@" Error");
-        } else {
-            NSError *error;
-            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSString *title = jsonDict[@"name"];
-            productTitleAndWeight = [title componentsSeparatedByString:@","];
-            self.productTitle =[productTitleAndWeight objectAtIndex:0];
-            
-            //testString = [productTitleAndWeight objectAtIndex:0];
-//            [self setProductTitle:productTitle];
-            
-            
-            NSLog(@"title within the NSURL Connection => %@", self.productTitle);
-            NSLog(@"qwertyest1: %@",self.productTitle);
-            CFRunLoopStop(CFRunLoopGetCurrent());
-        }
-    }];
-
-    while (self.productTitle.length==0) {
-        CFRunLoopRun();
-    }
-    if(self.productTitle.length>0){
-        NSLog(@"Value1: %@",self.productTitle);
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSDictionary *arr = (NSDictionary *)[ml downloadItems:restAPI];
+    if (![arr[@"name"] isEqual:[NSNull null]]) {
+        self.productTitle = [[arr[@"name"] componentsSeparatedByString:@","] objectAtIndex:0];
+        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+        view.productTitleFromCameraScanner = [self productTitle];
+        [self.navigationController pushViewController:view animated:YES];
     }else{
-        NSLog(@"Value2: %@",self.productTitle);
-        CFRunLoopRun();
+        NSLog(@"Invalid");
     }
     
     
     
-    /*
-    
-    productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
-    if ([testString isEqualToString:@"Some"] ) {
-        NSLog(@"tyest: %@",testString);
-        CFRunLoopRun();
-    }else{
-         NSLog(@"qwertyest: %@",testString);
-        CFRunLoopStop(CFRunLoopGetCurrent());
-    
-    }
-    view.productTitleFromCameraScanner = [self productTitle];
-//    NSLog(@".............. > %@", [self productTitle]);
-    NSLog(@".............. > %@", testString);
-    
-//    NSLog(@"==================== > %@", view.productTitleFromCameraScanner);
-    [self.navigationController pushViewController:view animated:YES];*/
-
 }
 
 - (void)viewDidLoad
