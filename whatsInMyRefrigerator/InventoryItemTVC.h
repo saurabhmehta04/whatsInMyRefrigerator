@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
-
+#import "Middlelayer.h"
 
 @interface InventoryItemTVC : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray *inventoryItemarr;
+@property(nonatomic, strong) NSString *username;
 
 -(IBAction)AddingItem:(id)sender;
 

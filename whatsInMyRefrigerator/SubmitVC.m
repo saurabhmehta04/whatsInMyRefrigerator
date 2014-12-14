@@ -202,13 +202,8 @@
     }
     else if([btn.titleLabel.text isEqualToString:@"Submit"]){
         if ([self submit]) {
-            Middlelayer *ml = [[Middlelayer alloc]init];
-            NSString *str = @"http://localhost/login.php?arg1=";
-            str = [str stringByAppendingString:self.usr.text];
-            str = [str stringByAppendingString:@"&arg2="];
-            str = [str stringByAppendingString:self.pwd.text];
-            str = [str stringByAppendingString:@"&arg3="];
-            str = [str stringByAppendingString:self.emid.text];
+            [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             return YES;
         }
         else{
@@ -216,7 +211,7 @@
         }
     }
     else{
-        return YES;
+        return NO;
     }
 }
 

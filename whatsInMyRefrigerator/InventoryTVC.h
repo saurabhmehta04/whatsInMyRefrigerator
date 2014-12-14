@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "InventoryItemTVC.h"
+#import "Middlelayer.h"
 
 @interface InventoryTVC : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray *inventoryarr;
+@property(nonatomic, strong) NSString *username;
 
 -(IBAction)Adding:(id)sender;
 

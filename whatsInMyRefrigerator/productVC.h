@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "cameraScanner.h"
+#import "Middlelayer.h"
 
 @interface productVC : UIViewController
 
+@property(nonatomic, strong) NSString *username;
 @property (weak, nonatomic) IBOutlet UITextField *productTitle;
 @property (weak, nonatomic) IBOutlet UITextField *qty;
 @property (weak, nonatomic) IBOutlet UITextField *qtytype;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InventoryTVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

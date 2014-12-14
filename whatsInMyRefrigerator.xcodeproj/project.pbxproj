@@ -11,6 +11,9 @@
 		3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C09051A3CC2F700214664 /* SubmitVC.m */; };
 		3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984101A3372600044F4EA /* InventoryTVC.m */; };
 		3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984131A337FB90044F4EA /* InventoryItemTVC.m */; };
+		3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */; };
+		3FBFBDA61A3D8B8F0025ED11 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */; };
+		3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */; };
 		D2919E0C1A378177005A046C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0A1A378177005A046C /* AVFoundation.framework */; };
 		D2919E0F1A3784E7005A046C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0E1A3784E7005A046C /* Foundation.framework */; };
 		D2919E111A378515005A046C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E101A378515005A046C /* CoreGraphics.framework */; };
@@ -49,6 +52,12 @@
 		3F7984101A3372600044F4EA /* InventoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryTVC.m; sourceTree = "<group>"; };
 		3F7984121A337FB90044F4EA /* InventoryItemTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItemTVC.h; sourceTree = "<group>"; };
 		3F7984131A337FB90044F4EA /* InventoryItemTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryItemTVC.m; sourceTree = "<group>"; };
+		3FBFBD9E1A3D86FE0025ED11 /* FavouiteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouiteTVC.h; sourceTree = "<group>"; };
+		3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouiteTVC.m; sourceTree = "<group>"; };
+		3FBFBDA41A3D8B8F0025ED11 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
+		3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
+		3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3FBFBDA91A3D8CA60025ED11 /* ZoomingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomingProtocol.h; sourceTree = "<group>"; };
 		D2919E0A1A378177005A046C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D2919E0B1A378177005A046C /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		D2919E0E1A3784E7005A046C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */,
 				D2919E151A378527005A046C /* QuartzCore.framework in Frameworks */,
 				D2919E131A37851E005A046C /* UIKit.framework in Frameworks */,
 				D2919E111A378515005A046C /* CoreGraphics.framework in Frameworks */,
@@ -102,9 +112,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FBFBDA11A3D8AEE0025ED11 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6C09041A3CC2F700214664 /* SubmitVC.h */,
+				3F6C09051A3CC2F700214664 /* SubmitVC.m */,
+				D2E96D3E1A2FFABF001C096A /* LoginVC.h */,
+				D2E96D3F1A2FFABF001C096A /* LoginVC.m */,
+				D296A9521A3A7C22000F93FC /* productVC.h */,
+				D296A9531A3A7C22000F93FC /* productVC.m */,
+				3FBFBDA41A3D8B8F0025ED11 /* MapVC.h */,
+				3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3FBFBDA31A3D8B030025ED11 /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F79840F1A3372600044F4EA /* InventoryTVC.h */,
+				3F7984101A3372600044F4EA /* InventoryTVC.m */,
+				3F7984121A337FB90044F4EA /* InventoryItemTVC.h */,
+				3F7984131A337FB90044F4EA /* InventoryItemTVC.m */,
+				3FBFBD9E1A3D86FE0025ED11 /* FavouiteTVC.h */,
+				3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */,
+			);
+			name = TableViewControllers;
+			sourceTree = "<group>";
+		};
 		D2949C2C1A2FE0A3006B8D7D = {
 			isa = PBXGroup;
 			children = (
+				3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */,
 				D2919E141A378527005A046C /* QuartzCore.framework */,
 				D2919E121A37851E005A046C /* UIKit.framework */,
 				D2919E101A378515005A046C /* CoreGraphics.framework */,
@@ -129,6 +168,8 @@
 		D2949C371A2FE0A3006B8D7D /* whatsInMyRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				3FBFBDA31A3D8B030025ED11 /* TableViewControllers */,
+				3FBFBDA11A3D8AEE0025ED11 /* View Controllers */,
 				D2E96D3D1A2FFA93001C096A /* model */,
 				D2949C611A2FE135006B8D7D /* video.jpg */,
 				D2949C3C1A2FE0A3006B8D7D /* AppDelegate.h */,
@@ -174,20 +215,11 @@
 		D2E96D3D1A2FFA93001C096A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3FBFBDA91A3D8CA60025ED11 /* ZoomingProtocol.h */,
 				3F6C09021A3CC2F700214664 /* Middlelayer.h */,
 				3F6C09031A3CC2F700214664 /* Middlelayer.m */,
-				3F6C09041A3CC2F700214664 /* SubmitVC.h */,
-				3F6C09051A3CC2F700214664 /* SubmitVC.m */,
-				3F79840F1A3372600044F4EA /* InventoryTVC.h */,
-				3F7984101A3372600044F4EA /* InventoryTVC.m */,
-				D2E96D3E1A2FFABF001C096A /* LoginVC.h */,
-				D2E96D3F1A2FFABF001C096A /* LoginVC.m */,
-				3F7984121A337FB90044F4EA /* InventoryItemTVC.h */,
-				3F7984131A337FB90044F4EA /* InventoryItemTVC.m */,
 				D2919E161A37856A005A046C /* cameraScanner.h */,
 				D2919E171A37856A005A046C /* cameraScanner.m */,
-				D296A9521A3A7C22000F93FC /* productVC.h */,
-				D296A9531A3A7C22000F93FC /* productVC.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -200,8 +232,8 @@
 			buildConfigurationList = D2949C5B1A2FE0A4006B8D7D /* Build configuration list for PBXNativeTarget "whatsInMyRefrigerator" */;
 			buildPhases = (
 				D2949C311A2FE0A3006B8D7D /* Sources */,
-				D2949C321A2FE0A3006B8D7D /* Frameworks */,
 				D2949C331A2FE0A3006B8D7D /* Resources */,
+				D2949C321A2FE0A3006B8D7D /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */,
 				D296A9541A3A7C22000F93FC /* productVC.m in Sources */,
 				3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */,
 				D2949C441A2FE0A3006B8D7D /* SecondViewController.m in Sources */,
@@ -301,6 +334,7 @@
 				3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */,
 				3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */,
 				D2E96D401A2FFABF001C096A /* LoginVC.m in Sources */,
+				3FBFBDA61A3D8B8F0025ED11 /* MapVC.m in Sources */,
 				D2919E181A37856A005A046C /* cameraScanner.m in Sources */,
 				D2949C411A2FE0A3006B8D7D /* FirstViewController.m in Sources */,
 				3F6C09061A3CC2F700214664 /* Middlelayer.m in Sources */,

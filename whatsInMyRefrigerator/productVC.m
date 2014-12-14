@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+    NSLog(@"username: %@",self.username);
     NSLog(@"String value %@", productTitleFromCameraScanner);
     
         productTitle.text = productTitleFromCameraScanner;

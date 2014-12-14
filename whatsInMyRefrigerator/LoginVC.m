@@ -10,6 +10,7 @@
 #import "productVC.h"
 #import "cameraScanner.h"
 #import "Middlelayer.h"
+#import "InventoryTVC.h"
 
 @interface LoginVC ()
 
@@ -19,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+        //[self performSegueWithIdentifier:@"tab" sender:nil];
     // Do any additional setup after loading the view.
 //    cameraScanner *view = [self.storyboard instantiateInitialViewController:@"camera"];
 //    productVC *prod = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
@@ -66,12 +69,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)viewDidDisappear {
+[self dismissModalViewControllerAnimated:YES];
+}
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
     if ([btn.titleLabel.text isEqualToString:@"LOGIN"]) {
         if([self login]){
+            NSLog(@"USRN:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]);
+        [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
         }
         else{
@@ -80,7 +89,7 @@
         }
     }
     else{
-        return YES;
+        return FALSE;
     }
 }
 
