@@ -12,9 +12,9 @@
 
 @property (nonatomic, strong) IBOutlet UITextField *usr;
 @property (nonatomic, strong) IBOutlet UITextField *pwd;
+@property (nonatomic, strong) NSMutableArray *array;
 
--(IBAction)login:(id)sender;
--(IBAction)signup:(id)sender;
+-(BOOL)login;
 -(BOOL)checkpwd:(NSString *)usrid;
 -(void)this;
 
