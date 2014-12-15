@@ -9,6 +9,8 @@
 #import "LoginVC.h"
 #import "productVC.h"
 #import "cameraScanner.h"
+#import "Middlelayer.h"
+#import "InventoryTVC.h"
 
 @interface LoginVC ()
 
@@ -18,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+        //[self performSegueWithIdentifier:@"tab" sender:nil];
     // Do any additional setup after loading the view.
 //    cameraScanner *view = [self.storyboard instantiateInitialViewController:@"camera"];
 //    productVC *prod = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
@@ -31,6 +35,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)login{
+    NSInteger *cnt;
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSString *str = @"http://localhost/login.php?arg1=";
+    str = [str stringByAppendingString:self.usr.text];
+    str = [str stringByAppendingString:@"&arg2="];
+    str = [str stringByAppendingString:self.pwd.text];
+    
+    
+    NSArray *dicta = [ml downloadItems:str];
+    NSDictionary *dict = (NSDictionary *)dicta[0];
+    cnt = [dict[@"count(*)"] intValue];
+    if(cnt==1) {
+        return TRUE;
+    }else{
+        UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Invalid Login!!!"
+                                                        message:@"Either Username or password does not match with the account details."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        return FALSE;
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -40,5 +69,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)viewDidDisappear {
+[self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if ([btn.titleLabel.text isEqualToString:@"LOGIN"]) {
+        if([self login]){
+            NSLog(@"USRN:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]);
+        [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return YES;
+        }
+        else{
+            
+            return FALSE;
+        }
+    }
+    else{
+        return FALSE;
+    }
+}
 
 @end

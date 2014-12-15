@@ -8,9 +8,9 @@
 
 #import "SubmitVC.h"
 
-#define USERNAME @"Email"
-#define PASSWORD @"Email"
-#define CFMPASS @"Email"
+#define USERNAME @"Username"
+#define PASSWORD @"Password"
+#define CFMPASS @"Confirm Password"
 #define EMAIL @"Email"
 
 @interface SubmitVC ()
@@ -21,18 +21,13 @@
 
 @implementation SubmitVC
 
--(IBAction)check:(id)sender{
-//    UITextField *txt = (UITextField *)sender;
-//    if ([txt.placeholder isEqualToString:USERNAME]) {
-//        NSLog(@"text");
-//    }
-//    else if()
-    //NSLog(@"SEnder: %@",txt.placeholder);
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.usrn=FALSE;
+    self.pswd=FALSE;
+    self.cfpswd=FALSE;
+    self.eid=FALSE;
     self.array = [[NSMutableArray alloc]init];
     
     Middlelayer *ml = [[Middlelayer alloc]init];
@@ -50,7 +45,25 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)checkpwd{
+
+-(void)username{
+    for(NSString *name in self.array){
+        //NSLog(@"Initial: %@ and Writing: %@",name,self.usr.text);
+        if([name isEqualToString:self.usr.text]){
+            self.usrn=FALSE;
+            //NSLog(@"USR1: %d",self.usrn);
+            break;
+        }
+        else{
+            self.usrn=TRUE;
+            //NSLog(@"USR2: %d",self.usrn);
+            
+        }
+    }
+}
+
+
+-(void)checkpwd{
     NSString *msg = @"";
     
     NSUInteger count1 = [[[self.pwd.text componentsSeparatedByCharactersInSet:[[NSCharacterSet uppercaseLetterCharacterSet] invertedSet]] componentsJoinedByString:@""] length];
@@ -79,52 +92,90 @@
     
     if (![msg isEqualToString:@""]) {
         [alert show];
-        return FALSE;
+        self.pswd=FALSE;
     }
     else{
-        return TRUE;
+        self.pswd=TRUE;
     }
+    //NSLog(@"%d PWD:%@",self.pswd,self.pwd.text);
 }
 
--(BOOL)checkpwds{
+-(void)checkpwds{
     if([self.pwd.text isEqualToString:self.cfmpwd.text]){
+        self.cfpswd=TRUE;
+    }
+    else{
+        self.cfpswd=FALSE;
+    }
+    //NSLog(@"cfmpwd:%@",self.cfmpwd.text);
+}
+
+//Reference: http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+
+-(void)emailid{
+    BOOL stricterFilter = NO;
+    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *laxString = @".+@.+\.[A-Za-z-]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    self.eid = [emailTest evaluateWithObject:self.emid.text] ? TRUE : FALSE;
+}
+
+-(IBAction)check:(id)sender{
+    UITextField *txt = (UITextField *)sender;
+    if ([txt.placeholder isEqualToString:USERNAME]) {
+        [self username];
+        //         NSLog(@"USR: %d",self.usrn);
+    }
+    else if([txt.placeholder isEqualToString:PASSWORD]){
+        [self checkpwd];
+        //        NSLog(@"USR: %d",self.pswd);
+    }
+    else if([txt.placeholder isEqualToString:CFMPASS]){
+        [self checkpwds];
+        //        NSLog(@"USR: %d",self.cfpswd);
+    }
+    else if([txt.placeholder isEqualToString:EMAIL]){
+        [self emailid];
+        //NSLog(@"USR ema: %d",self.eid);
+    }
+    
+}
+
+
+-(BOOL)submit{
+    NSLog(@"Usr: %d and Pass: %d and Email: %d",self.usrn,self.pswd,self.eid);
+    if (self.usrn && self.pswd && self.cfpswd && self.eid) {
+        Middlelayer *ml = [[Middlelayer alloc]init];
+        NSString *str = @"http://localhost/loginupdate.php?name=";
+        str = [str stringByAppendingString:self.usr.text];
+        str = [str stringByAppendingString:@"&pwd="];
+        str = [str stringByAppendingString:self.pwd.text];
+        str = [str stringByAppendingString:@"&email="];
+        str = [str stringByAppendingString:self.emid.text];
+        NSArray *dicta = [ml downloadItems:str];
+
         return TRUE;
     }
     else{
+        NSString *msg;
+        if (!self.usrn) {
+            msg = @"Username Already Exists";
+        }
+        else if (!self.cfpswd){
+            msg = [msg stringByAppendingString:@"\nBoth Password do not Match\n"];
+        }
+        else if(!self.eid){
+            msg = [msg stringByAppendingString:@"\nEmail Id Invalid\n"];
+        }
+        UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Invalid Password!!!"
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                            otherButtonTitles: nil];
+        [alert show];
         return FALSE;
     }
-}
-/*
--(BOOL)username{
-    
-}
-
--(BOOL)emailid{
-    
-}
-*/
-
--(void)submit{
-    Middlelayer *ml = [[Middlelayer alloc]init];
-    NSArray *dicta = [ml downloadItems:@"http://localhost/login.php"];
-    //[self downloadItems];
-    NSLog(@"DATa: %@",dicta);
-//    BOOL success = NO;
-//    NSArray *data1 = [[DBManager getSharedInstance]findAll];
-//    NSLog(@"Before Adding:%d",data1.count);
-//
-//    success = [[DBManager getSharedInstance] saveData:self.usr.text password:self.pwd.text email:self.emid.text];
-//    NSArray *data2 = [[DBManager getSharedInstance]findAll];
-//    NSLog(@"After Adding:%d",data2.count);
-//    
-//    if (success==NO) {
-//        NSLog(@"%id sad",success);
-//        return FALSE;
-//    }
-//    else{
-//        NSLog(@"%id asd",success);
-//        return TRUE;
-//    }
 }
 
 
@@ -146,29 +197,22 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    
     if ([btn.titleLabel.text isEqualToString:@"Cancel"]) {
         return YES;
     }
     else if([btn.titleLabel.text isEqualToString:@"Submit"]){
-        
-        
-        [self submit];
-        
-        
-        //NSLog(@"Segue");
-        //[self checkpwd]; [self.usr.text isEqualToString:@"ma"]
-        //if ([self submit]) {
-        //    return YES;
-        //}else{
-        //    return NO;
-        //}
-        return YES;
+        if ([self submit]) {
+            [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return YES;
+        }
+        else{
+        return NO;
+        }
     }
     else{
-        return YES;
+        return NO;
     }
 }
-
 
 @end

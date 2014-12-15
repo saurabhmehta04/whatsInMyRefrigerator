@@ -16,13 +16,18 @@
 @property (nonatomic, strong) IBOutlet UITextField *emid;
 @property (nonatomic, strong) NSMutableArray *array;
 
+@property (nonatomic, assign) BOOL usrn;
+@property (nonatomic, assign) BOOL pswd;
+@property (nonatomic, assign) BOOL cfpswd;
+@property (nonatomic, assign) BOOL eid;
+
 -(IBAction)check:(id)sender;
 
--(void)submit;
--(BOOL)checkpwd;
--(BOOL)checkpwds;
--(BOOL)username;
--(BOOL)emailid;
+-(BOOL)submit;
+-(void)checkpwd;
+-(void)checkpwds;
+-(void)username;
+-(void)emailid;
 //-(void)this;
 
 

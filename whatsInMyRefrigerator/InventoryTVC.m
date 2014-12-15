@@ -16,13 +16,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.inventoryarr = [[NSMutableArray alloc]init];
+    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSString *str = [@"http://localhost/inventory.php?name=" stringByAppendingString:self.username];
+    NSArray *dicta = [ml downloadItems:str];
+    for (id di in dicta){
+        NSDictionary *dict = di;
+        NSString *name = dict[@"fridgename"];
+        [self.inventoryarr addObject:name];
+    }
+    //NSLog(@"Arr: %@",self.inventoryarr);
+    
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.inventoryarr = [[NSMutableArray alloc] init];
+    
     
 }
 
@@ -58,7 +72,7 @@
 }
 
 -(IBAction)Adding:(id)sender{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Comment"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add a New Fridge"
                                                     message:@""
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
@@ -69,18 +83,36 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *fridge;
     if (buttonIndex == 1) {
-        NSString *comment = [alertView textFieldAtIndex:0].text;
-        [self.inventoryarr addObject:comment];
+        fridge = [alertView textFieldAtIndex:0].text;
+        [self.inventoryarr addObject:fridge];
     }
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSString *str = [@"http://localhost/inventory.php?name=" stringByAppendingString:self.username];
+    str = [str stringByAppendingString:@"&fridgename="];
+    str = [str stringByAppendingString:fridge];
+    NSArray *dicta = [ml downloadItems:str];
+//    for (id di in dicta){
+//        NSDictionary *dict = di;
+//        NSString *name = dict[@"fridgename"];
+//        [self.inventoryarr addObject:name];
+//    }
+//
+//    
+    
     [self.tableView reloadData];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     InventoryItemTVC *itemvc = [[InventoryItemTVC alloc] initWithStyle:UITableViewStyleGrouped];
-    itemvc.title = @"Adding Item";
+    itemvc.title = (NSString *)[self.inventoryarr objectAtIndex:indexPath.row];
      //[self.navigationController  pushViewController:itemvc animated:YES];
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:(NSString *)[self.inventoryarr objectAtIndex:indexPath.row] forKey:@"fridge"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
