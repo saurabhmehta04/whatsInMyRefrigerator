@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "cameraScanner.h"
 
+
 @interface productVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *productTitle;

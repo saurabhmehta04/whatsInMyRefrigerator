@@ -23,7 +23,27 @@
     NSLog(@"String value %@", productTitleFromCameraScanner);
     
         productTitle.text = productTitleFromCameraScanner;
+    
+    
+    
+    NSDateFormatter *obj_date_formatter = [[NSDateFormatter alloc] init];
+    [obj_date_formatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
+    
+    NSDateFormatter *my_date_formatter = [[NSDateFormatter alloc] init];
+    [my_date_formatter setDateFormat:@"dd/MM/yy"];
+    
+    IBOutlet UIDatePicker *myDatePicker;
+    myDatePicker.date = [my_date_formatter dateFromString:[obj_date_formatter stringFromDate:[NSDate date]]];
+    
 }
+
+
+-(void)updateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
+    self.edate.text = [NSString stringWithFormat:@"%@",picker.date];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -34,22 +54,5 @@
     NSLog(@"Submit button clicked");
 }
 
-//-(id)initWithCoder:(NSCoder *)aDecoder {
-//    cameraScanner *controller = [[cameraScanner alloc]init];
-//    NSLog(@"in productVC => %@", controller.productTitle);
-//    productTitle.text = controller.productTitle;
-//
-//}
-
-
-//- (id)initWithCoder:(NSCoder *)inCoder {
-//    if (self = [super initWithCoder:inCoder]) {
-//        
-//        productTitle.text = @"This is from initWithCoder";
-//        NSLog(@"I am here");
-//        
-//    }
-//    return self;
-//}
 
 @end

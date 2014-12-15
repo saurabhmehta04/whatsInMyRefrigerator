@@ -30,9 +30,6 @@
 @synthesize productTitleAndWeight; //NSArray
 //@synthesize productTitle; //NSString
 
-
-
-
 //getting the product details from the barcode
 -(void)productInfo: (NSString *)productId {
     //testString = @"Some";
