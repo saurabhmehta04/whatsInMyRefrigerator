@@ -30,14 +30,14 @@
     self.eid=FALSE;
     self.array = [[NSMutableArray alloc]init];
     
-    Middlelayer *ml = [[Middlelayer alloc]init];
-    NSArray *dicta = [ml downloadItems:@"http://localhost/login.php"];
-    for (id di in dicta){
-        NSDictionary *dict = di;
-        NSString *name = dict[@"username"];
-        [self.array addObject:name];
-    }
-    NSLog(@"Arr: %@",self.array);
+//    Middlelayer *ml = [[Middlelayer alloc]init];
+//    NSArray *dicta = [ml downloadItems:@"http://localhost/login.php"];
+//    for (id di in dicta){
+//        NSDictionary *dict = di;
+//        NSString *name = dict[@"username"];
+//        [self.array addObject:name];
+//    }
+//    NSLog(@"Arr: %@",self.array);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,9 +145,9 @@
 
 -(BOOL)submit{
     NSLog(@"Usr: %d and Pass: %d and Email: %d",self.usrn,self.pswd,self.eid);
-    if (self.usrn && self.pswd && self.cfpswd && self.eid) {
+    if (!self.usrn && self.pswd && self.cfpswd && self.eid) {
         Middlelayer *ml = [[Middlelayer alloc]init];
-        NSString *str = @"http://localhost/loginupdate.php?name=";
+        NSString *str = @"http://localhost:8888/loginupdate.php?name=";
         str = [str stringByAppendingString:self.usr.text];
         str = [str stringByAppendingString:@"&pwd="];
         str = [str stringByAppendingString:self.pwd.text];
@@ -159,7 +159,7 @@
     }
     else{
         NSString *msg;
-        if (!self.usrn) {
+        if (self.usrn) {
             msg = @"Username Already Exists";
         }
         else if (!self.cfpswd){

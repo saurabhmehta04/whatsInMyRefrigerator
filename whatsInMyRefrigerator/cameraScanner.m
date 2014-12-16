@@ -30,9 +30,6 @@
 @synthesize productTitleAndWeight; //NSArray
 //@synthesize productTitle; //NSString
 
-
-
-
 //getting the product details from the barcode
 -(void)productInfo: (NSString *)productId {
     //testString = @"Some";
@@ -41,9 +38,17 @@
     
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSDictionary *arr = (NSDictionary *)[ml downloadItems:restAPI];
+    NSLog(@"data:%@",arr);
     if (![arr[@"name"] isEqual:[NSNull null]]) {
+        
+        NSLog(@"data1:%@",arr[@"name"]);
+        NSLog(@"data2:%@",[arr[@"name"] componentsSeparatedByString:@","]);
+        //NSLog(@"data3:%@",arr);
         self.productTitle = [[arr[@"name"] componentsSeparatedByString:@","] objectAtIndex:0];
         productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+        
+        NSLog(@"product title ===> %@", self.productTitle);
+//        view.productTitle.text = [self productTitle];
         view.productTitleFromCameraScanner = [self productTitle];
         [self.navigationController pushViewController:view animated:YES];
     }else{
@@ -57,6 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self flashlight];
     done = YES;
     _highlightView = [[UIView alloc] init];

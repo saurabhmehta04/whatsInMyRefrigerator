@@ -70,15 +70,10 @@
                          handler:^(UIAlertAction * action)
                          {
                              cameraScanner *view = [[cameraScanner alloc] init];
-                             //                             [self presentViewController:viewController animated:YES completion:nil];
-                             //[self performSegueWithIdentifier:@"camera" sender:self];
+                             view.hidesBottomBarWhenPushed = YES;
+                             [self.navigationController setNavigationBarHidden:YES animated:YES];
                              [self.navigationController pushViewController:view animated:YES];
-                             
                              NSLog(@"In scan UIAlertAction");
-                             
-                             
-                             
-                             
                              
                          }];
     
@@ -89,7 +84,6 @@
                          {
                              //Do some thing here
                              [view dismissViewControllerAnimated:YES completion:nil];
-                             
                          }];
     
     UIAlertAction* add_manually = [UIAlertAction

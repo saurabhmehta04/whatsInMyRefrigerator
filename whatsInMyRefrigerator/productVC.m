@@ -20,12 +20,61 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     NSLog(@"username: %@",self.username);
     NSLog(@"String value %@", productTitleFromCameraScanner);
-    
         productTitle.text = productTitleFromCameraScanner;
+
+
+    UIDatePicker *pickerDate = [[UIDatePicker alloc]init];
+    pickerDate.datePickerMode = UIDatePickerModeDate;
+    [pickerDate setMinimumDate: [NSDate date]];
+    [self.edate setInputView:pickerDate];
+    
+    [pickerDate setDate:[NSDate date]];
+    [pickerDate addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
+    [self.edate setInputView:pickerDate];
+
+    //    tap to dismiss
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    
+    
 }
+
+- (IBAction)updateTime:(id)sender {
+    if([self.edate isFirstResponder]){ 
+        UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+//        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        NSString *myDateString = [dateFormatter stringFromDate: [picker date]];
+        
+        self.edate.text = myDateString;
+    }
+    
+}
+
+-(void)dismissKeyboard {
+    [self.qty resignFirstResponder];
+    [self.qtytype resignFirstResponder];
+    [self.productTitle resignFirstResponder];
+    [self.edate resignFirstResponder];
+}
+
+
+-(void)updateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
+    self.edate.text = [NSString stringWithFormat:@"%@",picker.date];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -36,22 +85,7 @@
     NSLog(@"Submit button clicked");
 }
 
-//-(id)initWithCoder:(NSCoder *)aDecoder {
-//    cameraScanner *controller = [[cameraScanner alloc]init];
-//    NSLog(@"in productVC => %@", controller.productTitle);
-//    productTitle.text = controller.productTitle;
-//
-//}
 
-
-//- (id)initWithCoder:(NSCoder *)inCoder {
-//    if (self = [super initWithCoder:inCoder]) {
-//        
-//        productTitle.text = @"This is from initWithCoder";
-//        NSLog(@"I am here");
-//        
-//    }
-//    return self;
-//}
-
+- (IBAction)addToFav:(id)sender {
+}
 @end
