@@ -598,6 +598,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="setNotification:" destination="Asc-UT-HBW" eventType="touchUpInside" id="IPH-iD-MLm"/>
                                     <action selector="submit:" destination="Asc-UT-HBW" eventType="touchUpInside" id="k6q-Ch-9HG"/>
                                 </connections>
                             </button>

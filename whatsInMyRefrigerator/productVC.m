@@ -14,6 +14,8 @@
 
 @implementation productVC
 
+NSDate *dateTime;
+
 @synthesize productTitle;
 @synthesize productTitleFromCameraScanner;
 
@@ -28,7 +30,7 @@
 
 
     UIDatePicker *pickerDate = [[UIDatePicker alloc]init];
-    pickerDate.datePickerMode = UIDatePickerModeDate;
+//    pickerDate.datePickerMode = UIDatePickerModeDate;
     [pickerDate setMinimumDate: [NSDate date]];
     [self.edate setInputView:pickerDate];
     
@@ -42,18 +44,18 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
-    
+
     
 }
 
 - (IBAction)updateTime:(id)sender {
     if([self.edate isFirstResponder]){ 
         UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
-        
+        dateTime = picker.date;
+        NSLog(@"updated date is ====> %@", dateTime);
+
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-//        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         NSString *myDateString = [dateFormatter stringFromDate: [picker date]];
         
         self.edate.text = myDateString;
@@ -83,6 +85,23 @@
 
 -(IBAction)submit:(id)sender {
     NSLog(@"Submit button clicked");
+    
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+}
+
+- (IBAction)setNotification:(UIButton *)sender {
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    NSLog(@"Date time set is  ================ > %@", dateTime);
+    localNotification.fireDate = dateTime;
+    localNotification.alertBody = [NSString stringWithFormat:@"Alert Fired at %@", dateTime];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+//    localNotification.applicationIconBadgeNumber = 1;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 
