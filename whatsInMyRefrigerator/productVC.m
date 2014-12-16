@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     NSLog(@"username: %@",self.username);
     NSLog(@"String value %@", productTitleFromCameraScanner);
@@ -35,33 +36,7 @@
     [pickerDate addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     [self.edate setInputView:pickerDate];
 
-//
-  
-    
-//    NSDateFormatter *obj_date_formatter = [[NSDateFormatter alloc] init];
-//    [obj_date_formatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
-//    
-//    NSDateFormatter *my_date_formatter = [[NSDateFormatter alloc] init];
-//    [my_date_formatter setDateFormat:@"dd/MM/yy"];
-//    
-
-//    UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
-//    NSDate *alertTime = [picker date];
-//  
-//    UIApplication* app = [UIApplication sharedApplication];
-//    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]
-//                                        init];
-//    if (notifyAlarm)
-//    {
-//        notifyAlarm.fireDate = alertTime;
-//        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
-//        notifyAlarm.repeatInterval = 0;
-////        notifyAlarm.soundName = @"ringtone.mp3";
-//        notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ is about to expire", self.productTitle];
-//        [app scheduleLocalNotification:notifyAlarm];
-//    }
-    
-//    tap to dismiss
+    //    tap to dismiss
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -76,8 +51,9 @@
         UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+//        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+//        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         NSString *myDateString = [dateFormatter stringFromDate: [picker date]];
         
         self.edate.text = myDateString;

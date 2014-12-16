@@ -48,6 +48,7 @@
         productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
         
         NSLog(@"product title ===> %@", self.productTitle);
+//        view.productTitle.text = [self productTitle];
         view.productTitleFromCameraScanner = [self productTitle];
         [self.navigationController pushViewController:view animated:YES];
     }else{
@@ -61,6 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self flashlight];
     done = YES;
     _highlightView = [[UIView alloc] init];
