@@ -95,6 +95,72 @@ NSDate *dateTime;
 
 -(IBAction)submit:(id)sender {
     NSLog(@"Submit button clicked");
+    NSString *msg=@"";
+    BOOL f1=true,f2=true;
+    if(self.productTitle.text==@""){
+        msg = [msg stringByAppendingString:@"Product Titile cannot be left blank"];
+        f1 = false;
+    }else if (self.edate.text==@""){
+        msg = [msg stringByAppendingString:@"Expiraton Date cannot be Blank"];
+        f2 = false;
+    }
+    if (f1==true && f2 == true) {
+        Middlelayer *ml = [[Middlelayer alloc]init];
+        NSString *str = @"http://localhost/inventoryitemsupdate.php?arg1=";
+        str = [str stringByAppendingString:self.username];
+        str = [str stringByAppendingString:@"&arg2="];
+        str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
+        str = [str stringByAppendingString:@"&arg3="];
+        if ([self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
+            str = [str stringByAppendingString:self.productTitle.text];
+        }else{
+            str = [str stringByAppendingString:self.productTitleFromCameraScanner];
+        }
+        str = [str stringByAppendingString:@"&arg4="];
+        str = [str stringByAppendingString:self.qty.text];
+        str = [str stringByAppendingString:@"&arg5="];
+        str = [str stringByAppendingString:self.category.text];
+        str = [str stringByAppendingString:@"&arg6="];
+        str = [str stringByAppendingString:self.edate.text];
+        str = [str stringByAppendingString:@"&arg7="];
+        NSString *bol = self.favval.isOn ? @"1" : @"0";
+        str = [str stringByAppendingString:bol];
+        if (![self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
+            str = [str stringByAppendingString:@"&arg8="];
+            str = [str stringByAppendingString:self.productTitle.text];
+        }
+        //NSLog(@"STRing: %@",str);
+        
+        NSArray *dicta = [ml downloadItems:str];
+     
+        if([self addToFav]){
+            Middlelayer *ml = [[Middlelayer alloc]init];
+            NSString *str = @"http://localhost/inventoryitemsupdate.php?arg1=";
+            str = [str stringByAppendingString:self.username];
+            str = [str stringByAppendingString:@"&arg2="];
+            str = [str stringByAppendingString:self.productTitle.text];
+            str = [str stringByAppendingString:@"&arg3="];
+            str = [str stringByAppendingString:self.category.text];
+            NSArray *dicta = [ml downloadItems:str];
+            UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Favourites!!!"
+                                                            message:@"Added to Favourites"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+            [alert show];
+
+        }
+        //NSLog(@"Name: %@",dicta);
+        //NSDictionary *dict = (NSDictionary *)dicta[0];
+    }else{
+        
+        UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Product Detail Invalid!!!"
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
     
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
 }
@@ -113,7 +179,6 @@ NSDate *dateTime;
 //    localNotification.applicationIconBadgeNumber = 1;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
-
 
 - (BOOL)addToFav {
     //NSLog(@"Val: %d",self.favval.isOn);
