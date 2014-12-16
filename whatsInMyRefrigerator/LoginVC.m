@@ -38,15 +38,16 @@
 -(BOOL)login{
     NSInteger *cnt;
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = @"http://localhost/login.php?arg1=";
-    str = [str stringByAppendingString:self.usr.text];
-    str = [str stringByAppendingString:@"&arg2="];
-    str = [str stringByAppendingString:self.pwd.text];
+    NSString *str = @"http://localhost:8888/login.php";//   ?arg1=";
+    //str = [str stringByAppendingString:self.usr.text];
+    //str = [str stringByAppendingString:@"&arg2="];
+    //str = [str stringByAppendingString:self.pwd.text];
     
     
     NSArray *dicta = [ml downloadItems:str];
     NSDictionary *dict = (NSDictionary *)dicta[0];
     cnt = [dict[@"count(*)"] intValue];
+    NSLog(@"cn:%d",cnt);
     if(cnt==1) {
         return TRUE;
     }else{

@@ -38,9 +38,16 @@
     
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSDictionary *arr = (NSDictionary *)[ml downloadItems:restAPI];
+    NSLog(@"data:%@",arr);
     if (![arr[@"name"] isEqual:[NSNull null]]) {
+        
+        NSLog(@"data1:%@",arr[@"name"]);
+        NSLog(@"data2:%@",[arr[@"name"] componentsSeparatedByString:@","]);
+        //NSLog(@"data3:%@",arr);
         self.productTitle = [[arr[@"name"] componentsSeparatedByString:@","] objectAtIndex:0];
         productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+        
+        NSLog(@"product title ===> %@", self.productTitle);
         view.productTitleFromCameraScanner = [self productTitle];
         [self.navigationController pushViewController:view animated:YES];
     }else{
