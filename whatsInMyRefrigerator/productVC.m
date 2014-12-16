@@ -22,11 +22,21 @@ NSDate *dateTime;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    //[self.navigationController setNavigationBarHidden:NO animated:YES];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-    NSLog(@"username: %@",self.username);
-    NSLog(@"String value %@", productTitleFromCameraScanner);
-        productTitle.text = productTitleFromCameraScanner;
+    //NSLog(@"username: %@",self.username);
+    //NSLog(@"String value %@", productTitleFromCameraScanner);
+    productTitle.text = productTitleFromCameraScanner;
+    self.qty.text = self.qtyFromInvent;
+     self.category.text = self.qtytypeFromInvent;
+     self.edate.text = self.edateFromInvent;
+     if ([self.favfromInvent integerValue]==1) {
+         //NSLog(@"ATHV: %@",self.favfromInvent);
+     [self.favval setOn:YES];
+     }else{
+        // NSLog(@"ATHV: %@",self.favfromInvent);
+     [self.favval setOn:NO];
+     }
 
 
     UIDatePicker *pickerDate = [[UIDatePicker alloc]init];
@@ -65,7 +75,7 @@ NSDate *dateTime;
 
 -(void)dismissKeyboard {
     [self.qty resignFirstResponder];
-    [self.qtytype resignFirstResponder];
+    [self.category resignFirstResponder];
     [self.productTitle resignFirstResponder];
     [self.edate resignFirstResponder];
 }
@@ -105,6 +115,8 @@ NSDate *dateTime;
 }
 
 
-- (IBAction)addToFav:(id)sender {
+- (BOOL)addToFav {
+    //NSLog(@"Val: %d",self.favval.isOn);
+    return self.favval.isOn;
 }
 @end
