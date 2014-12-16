@@ -7,6 +7,8 @@
 //
 
 #import "FavouiteTVC.h"
+#import "Middlelayer.h"
+#import "productVC.h"
 
 @interface FavouiteTVC ()
 
@@ -16,6 +18,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"In favourites view controller");
+    
+    self.favArry = [[NSMutableArray alloc]init];
+    //NSString *usrn = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSString *str = [@"http://localhost/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
+    NSArray *dicta = [ml downloadItems:str];
+    //NSLog(@"Dat: %@",dicta);
+    for (id di in dicta){
+        NSDictionary *dict = di;
+        NSMutableArray *arr=[[NSMutableArray alloc]init];
+        NSString *name = dict[@"itemname"];
+        [arr addObject:name];
+        NSString *cgy = dict[@"category"];
+        [arr addObject:cgy];
+        [self.favArry addObject:arr];
+    }
+    //NSLog(@"%@Data: %@",[[NSUserDefaults standardUserDefaults] stringForKey:@"username"],self.favArry);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,30 +53,39 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    NSLog(@"rows %lu", (unsigned long)[self.favArry count]);
     return [self.favArry count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favitem" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favitem" forIndexPath:indexPath];
     
+    static NSString *CellIdentifier = @"favitem";
+    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSLog(@"fav: %@",self.favArry);
     // Configure the cell...
     
-    cell.textLabel.text = [self.favArry objectAtIndex:indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text = [[self.favArry objectAtIndex:indexPath.row] objectAtIndex:0];
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+    view.productTitleFromCameraScanner = [[self.favArry objectAtIndex:indexPath.row] objectAtIndex:0];
+    view.qtytypeFromInvent = [[self.favArry objectAtIndex:indexPath.row] objectAtIndex:1];
+    [view.favval setEnabled:NO];
+    [self.navigationController  pushViewController:view animated:YES];
     
 }
 
@@ -63,11 +93,11 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     
-    self.favArry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
+    //self.favArry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
     //mutableCopy is used because while reordering cells it was throwing an error mutating method sent to immutable object.
     
     //NSLog(@"Value from standardUserDefaults: %@", self.favArry);
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 

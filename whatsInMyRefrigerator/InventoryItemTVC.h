@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 #import "Middlelayer.h"
+#import "FavouiteTVC.h"
 
 @interface InventoryItemTVC : UITableViewController
 

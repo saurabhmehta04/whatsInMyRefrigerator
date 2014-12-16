@@ -19,8 +19,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.inventoryItemarr = [[NSMutableArray alloc]init];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-    NSLog(@"username: %@",self.username);    // Uncomment the following line to preserve selection between presentations.
+    //NSLog(@"username: %@",self.username);
+    
+    Middlelayer *ml = [[Middlelayer alloc]init];
+    NSString *str = @"http://localhost/inventoryitems.php?arg1=";
+    str = [str stringByAppendingString:self.username];
+    str = [str stringByAppendingString:@"&arg2="];
+    str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
+    NSArray *dicta = [ml downloadItems:str];
+    //NSLog(@"Name: %@",dicta);
+    NSDictionary *dict = (NSDictionary *)dicta[0];
+    for (id di in dicta){
+        NSDictionary *dict = di;
+        NSMutableArray *arr=[[NSMutableArray alloc]init];
+        NSString *name = dict[@"itemname"];
+        //NSLog(@"Name: %@",name);
+        [arr addObject:name];
+        NSString *qty = dict[@"qty"];
+        //NSLog(@"Name: %@",qty);
+        [arr addObject:qty];
+        NSString *cgy = dict[@"category"];
+        //NSLog(@"Name: %@",cgy);
+        [arr addObject:cgy];
+        NSString *edate = dict[@"edate"];
+        //NSLog(@"Name: %@",edate);
+        [arr addObject:edate];
+        NSString *fav = dict[@"fav"];
+        [arr addObject:fav];
+        //NSLog(@"Name: %@",fav);
+        [self.inventoryItemarr addObject:arr];
+    }
+    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -43,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return [self.inventoryItemarr count];
 }
 
 
@@ -54,9 +85,28 @@
     UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text= @"HIIII";
+    cell.textLabel.text = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
+
 }
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
+    view.productTitleFromCameraScanner = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0];
+    //view.productTitle.userInteractionEnabled = NO;
+    //[view.productTitle endEditing:YES];
+    //[view.productTitle setUserInteractionEnabled:NO];
+    //[view.productTitle setEnabled:NO];
+    view.qtyFromInvent = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:1];
+    view.qtytypeFromInvent = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:2];
+    view.edateFromInvent = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:3];
+    view.favfromInvent = [[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:4];
+    //NSLog(@"ASD%@",view.favfromInvent);
+    //view.favfromInvent = [[[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:4] alue];
+    [self.navigationController  pushViewController:view animated:YES];
+}
+
 
 -(IBAction)AddingItem:(id)sender{
     UIAlertController * view=   [UIAlertController
@@ -82,7 +132,8 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
+                             FavouiteTVC *favController = [[FavouiteTVC alloc]init];
+                             [self.navigationController pushViewController:favController animated:YES];
                              [view dismissViewControllerAnimated:YES completion:nil];
                          }];
     
@@ -122,9 +173,9 @@
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    NSLog(@"ACT NAmweqwsas");
+    //NSLog(@"ACT NAmweqwsas");
     UIAlertAction *act = (UIAlertAction *)sender;
-    NSLog(@"ACT Name:%@",act.title);
+    //NSLog(@"ACT Name:%@",act.title);
     return YES;
 }
 
@@ -175,9 +226,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSLog(@"DATA1 Segue");
+    //NSLog(@"DATA1 Segue");
     if([segue.identifier isEqualToString:@"camera"]){
-        NSLog(@"Scan");
+       // NSLog(@"Scan");
     }else if ([segue.identifier isEqualToString:@"product"]){
         productVC *view = segue.destinationViewController;  
     }
