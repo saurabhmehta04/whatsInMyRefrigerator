@@ -24,7 +24,7 @@
     //NSLog(@"username: %@",self.username);
     
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = @"http://localhost/inventoryitems.php?arg1=";
+    NSString *str = @"http://localhost:8888/inventoryitems.php?arg1=";
     str = [str stringByAppendingString:self.username];
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];

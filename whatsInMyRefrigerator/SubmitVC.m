@@ -29,15 +29,6 @@
     self.cfpswd=FALSE;
     self.eid=FALSE;
     self.array = [[NSMutableArray alloc]init];
-    
-//    Middlelayer *ml = [[Middlelayer alloc]init];
-//    NSArray *dicta = [ml downloadItems:@"http://localhost/login.php"];
-//    for (id di in dicta){
-//        NSDictionary *dict = di;
-//        NSString *name = dict[@"username"];
-//        [self.array addObject:name];
-//    }
-//    NSLog(@"Arr: %@",self.array);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,12 +101,11 @@
     //NSLog(@"cfmpwd:%@",self.cfmpwd.text);
 }
 
-//Reference: http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
 
 -(void)emailid{
     BOOL stricterFilter = NO;
     NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSString *laxString = @".+@.+\.[A-Za-z-]{2}[A-Za-z]*";
+    NSString *laxString = @".+@.+.[A-Za-z-]{2}[A-Za-z]*";
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     self.eid = [emailTest evaluateWithObject:self.emid.text] ? TRUE : FALSE;
@@ -153,7 +143,7 @@
         str = [str stringByAppendingString:self.pwd.text];
         str = [str stringByAppendingString:@"&email="];
         str = [str stringByAppendingString:self.emid.text];
-        NSArray *dicta = [ml downloadItems:str];
+//        NSArray *dicta = [ml downloadItems:str];
 
         return TRUE;
     }

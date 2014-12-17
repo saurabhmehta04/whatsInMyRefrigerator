@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
 //        InventoryTVC *invent = [[UIStoryboard alloc] instantiateViewControllerWithIdentifier:@"inventory"];
 //        [navVC pushViewController:invent animated:YES];
 //    }
+    [GMSServices provideAPIKey:@"AIzaSyBtV2tlMp-dqxoz299dVeLQ46uL5RyNhYQ"];
     return YES;
 
 }

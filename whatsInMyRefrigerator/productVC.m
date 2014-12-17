@@ -135,7 +135,7 @@ NSDate *dateTime;
      
         if([self addToFav]){
             Middlelayer *ml = [[Middlelayer alloc]init];
-            NSString *str = @"http://localhost/inventoryitemsupdate.php?arg1=";
+            NSString *str = @"http://localhost:8888/inventoryitemsupdate.php?arg1=";
             str = [str stringByAppendingString:self.username];
             str = [str stringByAppendingString:@"&arg2="];
             str = [str stringByAppendingString:self.productTitle.text];

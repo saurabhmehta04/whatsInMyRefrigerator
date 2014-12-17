@@ -24,7 +24,7 @@
     self.favArry = [[NSMutableArray alloc]init];
     //NSString *usrn = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = [@"http://localhost/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
+    NSString *str = [@"http://localhost:8888/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
     NSArray *dicta = [ml downloadItems:str];
     //NSLog(@"Dat: %@",dicta);
     for (id di in dicta){
@@ -88,19 +88,10 @@
     [self.navigationController  pushViewController:view animated:YES];
     
 }
-
-
 - (void) viewWillAppear:(BOOL)animated
 {
     
-    //self.favArry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"favorites"] mutableCopy];
-    //mutableCopy is used because while reordering cells it was throwing an error mutating method sent to immutable object.
-    
-    //NSLog(@"Value from standardUserDefaults: %@", self.favArry);
-    //[self.tableView reloadData];
 }
-
-
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,19 +106,12 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
         NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];
-        
         [self.favArry removeObjectAtIndex:indexPath.row];
-        
         //setting the array list of favourites after deleting the object and also the table view
         [nsudefault setObject:self.favArry forKey: @"favorites"];
         [self.tableView reloadData];
         [nsudefault synchronize];
-        
-        
-        // Delete the row from the data source
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -141,31 +125,6 @@
     [self.favArry insertObject:itemname atIndex:fromIndexPath.row];
     [self.tableView reloadData];
     [nsudefault synchronize];
-    
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

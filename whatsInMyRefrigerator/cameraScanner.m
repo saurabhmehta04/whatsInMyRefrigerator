@@ -10,6 +10,7 @@
 #import "cameraScanner.h"
 #import "Middlelayer.h"
 
+
 @interface cameraScanner () <AVCaptureMetadataOutputObjectsDelegate>
 {
     AVCaptureSession *_session;
@@ -34,7 +35,7 @@
 -(void)productInfo: (NSString *)productId {
     //testString = @"Some";
     NSString *restAPI = [NSString stringWithFormat:@"http://www.outpan.com/api/get-product.php?apikey='be47fc0d96934ca9004100223e9ba7ba'&barcode='%@'", productId];
-
+    NSMutableString *test = [[NSMutableString alloc]init];
     
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSDictionary *arr = (NSDictionary *)[ml downloadItems:restAPI];

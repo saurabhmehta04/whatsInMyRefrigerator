@@ -38,10 +38,10 @@
 -(BOOL)login{
     NSInteger *cnt;
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = @"http://localhost:8888/login.php";//   ?arg1=";
-    //str = [str stringByAppendingString:self.usr.text];
-    //str = [str stringByAppendingString:@"&arg2="];
-    //str = [str stringByAppendingString:self.pwd.text];
+    NSString *str = @"http://localhost:8888/login.php?arg1=";
+    str = [str stringByAppendingString:self.usr.text];
+    str = [str stringByAppendingString:@"&arg2="];
+    str = [str stringByAppendingString:self.pwd.text];
     
     
     NSArray *dicta = [ml downloadItems:str];
