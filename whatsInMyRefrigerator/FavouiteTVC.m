@@ -24,7 +24,7 @@
     self.favArry = [[NSMutableArray alloc]init];
     //NSString *usrn = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = [@"http://localhost:8888/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
+    NSString *str = [@"http://wtf.lokesh-cherukuri.com/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
     NSArray *dicta = [ml downloadItems:str];
     //NSLog(@"Dat: %@",dicta);
     for (id di in dicta){
@@ -106,15 +106,19 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];
-        [self.favArry removeObjectAtIndex:indexPath.row];
-        //setting the array list of favourites after deleting the object and also the table view
-        [nsudefault setObject:self.favArry forKey: @"favorites"];
+        
+          [self.favArry removeObjectAtIndex:indexPath.row];
+
+        
+        Middlelayer *ml = [[Middlelayer alloc]init];
+        NSString *str = [@"http://wtf.lokesh-cherukuri.com/favourites.php?arg1=" stringByAppendingString:[[NSUserDefaults standardUserDefaults]stringForKey:@"username"]];
+        str = [str stringByAppendingString:@"&item="];
+        str = [str stringByAppendingString:[[self.favArry objectAtIndex:indexPath.row] objectAtIndex:0]];
+        //        NSArray *dicta = [ml downloadItems:str];
+        
         [self.tableView reloadData];
-        [nsudefault synchronize];
     }
 }
-
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];

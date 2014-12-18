@@ -17,6 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //[self.window setTintColor:[UIColor greenColor]];
+    
+    [self.window setTintColor:[UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:1]];
     // Override point for customization after application launch.
     
 //    if([[NSUserDefaults standardUserDefaults] stringForKey:@"username"].length>0){

@@ -36,19 +36,22 @@
 }
 
 -(BOOL)login{
+    
     NSInteger *cnt;
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = @"http://localhost:8888/login.php?arg1=";
+    NSString *str = @"http://wtf.lokesh-cherukuri.com/login.php?arg1=";
     str = [str stringByAppendingString:self.usr.text];
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:self.pwd.text];
-    
-    
+     NSLog(@"IN %@",str);
     NSArray *dicta = [ml downloadItems:str];
+     NSLog(@"IN %@",dicta);
     NSDictionary *dict = (NSDictionary *)dicta[0];
     cnt = [dict[@"count(*)"] intValue];
+   
     NSLog(@"cn:%d",cnt);
     if(cnt==1) {
+        NSLog(@"Checking");
         return TRUE;
     }else{
         UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Invalid Login!!!"
@@ -77,8 +80,9 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
-    if ([btn.titleLabel.text isEqualToString:@"LOGIN"]) {
+    if ([btn.titleLabel.text isEqualToString:@"Login"]) {
         if([self login]){
+            NSLog(@"In true if");
             NSLog(@"USRN:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]);
         [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] synchronize];

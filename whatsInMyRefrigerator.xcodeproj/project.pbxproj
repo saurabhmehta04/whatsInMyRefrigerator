@@ -11,6 +11,7 @@
 		3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C09051A3CC2F700214664 /* SubmitVC.m */; };
 		3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984101A3372600044F4EA /* InventoryTVC.m */; };
 		3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7984131A337FB90044F4EA /* InventoryItemTVC.m */; };
+		3FA05D5B1A4223F000D60A46 /* map_marker-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05D5A1A4223F000D60A46 /* map_marker-32.png */; };
 		3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */; };
 		3FBFBDA61A3D8B8F0025ED11 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */; };
 		3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */; };
@@ -60,6 +61,7 @@
 		3F7984101A3372600044F4EA /* InventoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryTVC.m; sourceTree = "<group>"; };
 		3F7984121A337FB90044F4EA /* InventoryItemTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItemTVC.h; sourceTree = "<group>"; };
 		3F7984131A337FB90044F4EA /* InventoryItemTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryItemTVC.m; sourceTree = "<group>"; };
+		3FA05D5A1A4223F000D60A46 /* map_marker-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker-32.png"; sourceTree = "<group>"; };
 		3FBFBD9E1A3D86FE0025ED11 /* FavouiteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouiteTVC.h; sourceTree = "<group>"; };
 		3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouiteTVC.m; sourceTree = "<group>"; };
 		3FBFBDA41A3D8B8F0025ED11 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		D2949C2C1A2FE0A3006B8D7D = {
 			isa = PBXGroup;
 			children = (
+				3FA05D5A1A4223F000D60A46 /* map_marker-32.png */,
 				D2C512701A41FDA700D1EB14 /* CoreData.framework */,
 				D2E78F131A41E2BD00E43CBF /* info-50.png */,
 				D2E78EFF1A41CD8400E43CBF /* about-100-2.png */,
@@ -337,6 +340,7 @@
 				D2E78F0E1A41CD8400E43CBF /* home-100.png in Resources */,
 				D2E78F0A1A41CD8400E43CBF /* about-100.png in Resources */,
 				D2E78F141A41E2BD00E43CBF /* info-50.png in Resources */,
+				3FA05D5B1A4223F000D60A46 /* map_marker-32.png in Resources */,
 				D2949C491A2FE0A3006B8D7D /* Images.xcassets in Resources */,
 				D2E78F0F1A41CD8400E43CBF /* like_outline-100.png in Resources */,
 				D2949C621A2FE135006B8D7D /* video.jpg in Resources */,

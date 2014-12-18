@@ -24,7 +24,7 @@
     //NSLog(@"username: %@",self.username);
     
     Middlelayer *ml = [[Middlelayer alloc]init];
-    NSString *str = @"http://localhost:8888/inventoryitems.php?arg1=";
+    NSString *str = @"http://wtf.lokesh-cherukuri.com/inventoryitems.php?arg1=";
     str = [str stringByAppendingString:self.username];
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
@@ -107,6 +107,38 @@
     [self.navigationController  pushViewController:view animated:YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+
+//Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        
+        //NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];
+        
+        NSLog(@"TRS:%@",[[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0]);
+        
+        [self.inventoryItemarr removeObjectAtIndex:indexPath.row];
+        
+        
+        Middlelayer *ml = [[Middlelayer alloc]init];
+        NSString *str = [@"http://wtf.lokesh-cherukuri.com/inventoryitemsdelete.php?name=" stringByAppendingString:self.username];
+        str = [str stringByAppendingString:@"&fridgename="];
+        str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
+        str = [str stringByAppendingString:@"&item="];
+        str = [str stringByAppendingString:[[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0]];
+//        NSArray *dicta = [ml downloadItems:str];
+        
+        [self.tableView reloadData];
+    }
+}
 
 -(IBAction)AddingItem:(id)sender{
     UIAlertController * view=   [UIAlertController
