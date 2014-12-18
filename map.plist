@@ -3,52 +3,75 @@
 <plist version="1.0">
 <dict>
 	<key>nearbylocation</key>
-	<dict>
-		<key>loc1</key>
+	<array>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Spice Bazzar</string>
 			<key>lat</key>
-			<string></string>
+			<string>43.091143</string>
 			<key>long</key>
-			<string></string>
+			<string>-77.645499
+-77.645499
+</string>
 		</dict>
-		<key>loc2</key>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Walmart</string>
 			<key>lat</key>
-			<string></string>
+			<string>43.085000</string>
 			<key>long</key>
-			<string></string>
+			<string>-77.624900</string>
 		</dict>
-		<key>loc3</key>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Pricerite</string>
 			<key>lat</key>
-			<string></string>
+			<string>43.088398</string>
 			<key>long</key>
-			<string></string>
+			<string>-77.644468</string>
 		</dict>
-		<key>loc4</key>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Namaste</string>
 			<key>lat</key>
-			<string></string>
+			<string>43.091203</string>
 			<key>long</key>
-			<string></string>
+			<string>-77.635595
+-77.635595
+</string>
 		</dict>
-		<key>loc5</key>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Asia Market</string>
 			<key>lat</key>
-			<string></string>
+			<string>43.091336</string>
 			<key>long</key>
-			<string></string>
+			<string>-77.635928</string>
 		</dict>
-	</dict>
+		<dict>
+			<key>name</key>
+			<string>Wegmans</string>
+			<key>lat</key>
+			<string>43.083751</string>
+			<key>long</key>
+			<string>-77.627591</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>BJ&apos;s</string>
+			<key>lat</key>
+			<string>43.089158</string>
+			<key>long</key>
+			<string>-77.629737</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Hikari Foods and Grocery</string>
+			<key>lat</key>
+			<string>43.117844</string>
+			<key>long</key>
+			<string>-77.621175</string>
+		</dict>
+	</array>
 </dict>
 </plist>

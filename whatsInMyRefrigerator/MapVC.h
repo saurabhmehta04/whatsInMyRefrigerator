@@ -10,10 +10,10 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBook/AddressBook.h>
-#import "ZoomingProtocol.h"
+//#import "ZoomingProtocol.h"
 
 
-@interface MapVC : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate,ZoomingProtocol>
+@interface MapVC : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;

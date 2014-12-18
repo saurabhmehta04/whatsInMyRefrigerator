@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MapVC.h"
+#import "Store.h"
 //#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
@@ -24,8 +25,15 @@
     [self.window setTintColor:[UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/255.0 alpha:1]];
     [self loadstore];
     
-    MapVC *mv = [[MapVC alloc] init];
+    UIStoryboard *sty = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UITabBarController *tabBarController =(UITabBarController *)[sty instantiateViewControllerWithIdentifier:@"tab"];
+    
+    
+    
+    MapVC *mv = (MapVC *)[[tabBarController viewControllers]objectAtIndex:1];
     mv.store = self.store;
+    NSLog(@"Store: %@",mv.store);
     
     // Override point for customization after application launch.
     
@@ -54,21 +62,21 @@
     self.store = [[NSMutableArray alloc]init];
     
     for (id dict in tempArray) {
-        NSMutableArray *arr = [[NSMutableArray alloc] init];
+       
         NSString *name = [dict objectForKey:@"name"];
         float latitude = [[dict objectForKey:@"lat"] floatValue];
         float longitude = [[dict objectForKey:@"long"] floatValue];
         CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
         //you get the rest of the values
         //....
-        [arr addObject:name];
-        [arr addObject:location];
-        
+        Store *st = [Store store];
+        st.storeName = name;
+        st.location = location;
         //you do rest of assignments
         //....
-        
+        //NSLog(@"long: %@",name);
         //add to self.parks array
-        [self.store addObject:arr];
+        [self.store addObject:st];
         
     }
 
