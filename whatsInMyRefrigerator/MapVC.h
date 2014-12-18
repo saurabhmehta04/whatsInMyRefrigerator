@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray *parks;
+@property (strong, nonatomic) NSMutableArray *store;
 
 - (void)startUpdating; //start location manager updating plus…
 - (void)stopUpdating;  //stop location manager updating plus…

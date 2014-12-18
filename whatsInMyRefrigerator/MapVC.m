@@ -27,6 +27,14 @@ return self;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSLog(@"Data: ");
+    
+    
+    
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
@@ -37,7 +45,7 @@ return self;
         
     }
     
-//    for (Park *park in self.parks) {
+//    for (N*park in self.parks) {
 //        [self.mapView addAnnotation:(id) park];
 //    }
     

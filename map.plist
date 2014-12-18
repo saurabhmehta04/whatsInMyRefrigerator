@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>nearbylocation</key>
+	<dict>
+		<key>loc1</key>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>lat</key>
+			<string></string>
+			<key>long</key>
+			<string></string>
+		</dict>
+		<key>loc2</key>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>lat</key>
+			<string></string>
+			<key>long</key>
+			<string></string>
+		</dict>
+		<key>loc3</key>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>lat</key>
+			<string></string>
+			<key>long</key>
+			<string></string>
+		</dict>
+		<key>loc4</key>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>lat</key>
+			<string></string>
+			<key>long</key>
+			<string></string>
+		</dict>
+		<key>loc5</key>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>lat</key>
+			<string></string>
+			<key>long</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

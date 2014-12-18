@@ -14,6 +14,9 @@
 		3FA05D5B1A4223F000D60A46 /* map_marker-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05D5A1A4223F000D60A46 /* map_marker-32.png */; };
 		3FA05D601A425BC200D60A46 /* about-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05D5E1A425BC200D60A46 /* about-32.png */; };
 		3FA05D611A425BC200D60A46 /* filled_box-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05D5F1A425BC200D60A46 /* filled_box-32.png */; };
+		3FA05D631A4266D500D60A46 /* map.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05D621A4266D500D60A46 /* map.plist */; };
+		3FA05D661A426E8900D60A46 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA05D651A426E8900D60A46 /* Store.m */; };
+		3FA05D681A426EF100D60A46 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA05D671A426EF100D60A46 /* MapKit.framework */; };
 		3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */; };
 		3FBFBDA61A3D8B8F0025ED11 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */; };
 		3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */; };
@@ -59,6 +62,10 @@
 		3FA05D5A1A4223F000D60A46 /* map_marker-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker-32.png"; sourceTree = "<group>"; };
 		3FA05D5E1A425BC200D60A46 /* about-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-32.png"; sourceTree = "<group>"; };
 		3FA05D5F1A425BC200D60A46 /* filled_box-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filled_box-32.png"; sourceTree = "<group>"; };
+		3FA05D621A4266D500D60A46 /* map.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = map.plist; path = ../map.plist; sourceTree = "<group>"; };
+		3FA05D641A426E8900D60A46 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		3FA05D651A426E8900D60A46 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		3FA05D671A426EF100D60A46 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3FBFBD9E1A3D86FE0025ED11 /* FavouiteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouiteTVC.h; sourceTree = "<group>"; };
 		3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouiteTVC.m; sourceTree = "<group>"; };
 		3FBFBDA41A3D8B8F0025ED11 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA05D681A426EF100D60A46 /* MapKit.framework in Frameworks */,
 				D2C512711A41FDA700D1EB14 /* CoreData.framework in Frameworks */,
 				3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */,
 				D2919E131A37851E005A046C /* UIKit.framework in Frameworks */,
@@ -135,6 +143,7 @@
 		3FA05D5D1A425B7B00D60A46 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				3FA05D671A426EF100D60A46 /* MapKit.framework */,
 				D2C512701A41FDA700D1EB14 /* CoreData.framework */,
 				3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */,
 				D2919E141A378527005A046C /* QuartzCore.framework */,
@@ -215,6 +224,7 @@
 		D2949C381A2FE0A3006B8D7D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FA05D621A4266D500D60A46 /* map.plist */,
 				D2949C391A2FE0A3006B8D7D /* Info.plist */,
 				D2949C3A1A2FE0A3006B8D7D /* main.m */,
 			);
@@ -246,6 +256,8 @@
 				3F6C09031A3CC2F700214664 /* Middlelayer.m */,
 				D2919E161A37856A005A046C /* cameraScanner.h */,
 				D2919E171A37856A005A046C /* cameraScanner.m */,
+				3FA05D641A426E8900D60A46 /* Store.h */,
+				3FA05D651A426E8900D60A46 /* Store.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -340,6 +352,7 @@
 				3FA05D611A425BC200D60A46 /* filled_box-32.png in Resources */,
 				3FA05D601A425BC200D60A46 /* about-32.png in Resources */,
 				D2949C621A2FE135006B8D7D /* video.jpg in Resources */,
+				3FA05D631A4266D500D60A46 /* map.plist in Resources */,
 				D2E78F101A41CD8400E43CBF /* like-100-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +374,7 @@
 				3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */,
 				D296A9541A3A7C22000F93FC /* productVC.m in Sources */,
 				3F7984141A337FB90044F4EA /* InventoryItemTVC.m in Sources */,
+				3FA05D661A426E8900D60A46 /* Store.m in Sources */,
 				D2949C3E1A2FE0A3006B8D7D /* AppDelegate.m in Sources */,
 				3F7984111A3372600044F4EA /* InventoryTVC.m in Sources */,
 				3F6C09071A3CC2F700214664 /* SubmitVC.m in Sources */,

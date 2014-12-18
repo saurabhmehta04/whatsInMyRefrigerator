@@ -30,28 +30,34 @@
     str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
     NSArray *dicta = [ml downloadItems:str];
     //NSLog(@"Name: %@",dicta);
-    NSDictionary *dict = (NSDictionary *)dicta[0];
-    for (id di in dicta){
-        NSDictionary *dict = di;
-        NSMutableArray *arr=[[NSMutableArray alloc]init];
-        NSString *name = dict[@"itemname"];
-        //NSLog(@"Name: %@",name);
-        [arr addObject:name];
-        NSString *qty = dict[@"qty"];
-        //NSLog(@"Name: %@",qty);
-        [arr addObject:qty];
-        NSString *cgy = dict[@"category"];
-        //NSLog(@"Name: %@",cgy);
-        [arr addObject:cgy];
-        NSString *edate = dict[@"edate"];
-        //NSLog(@"Name: %@",edate);
-        [arr addObject:edate];
-        NSString *fav = dict[@"fav"];
-        [arr addObject:fav];
-        //NSLog(@"Name: %@",fav);
-        [self.inventoryItemarr addObject:arr];
+    if ([dicta count]>0) {
+        NSDictionary *dict = (NSDictionary *)dicta[0];
+        for (id di in dicta){
+            NSDictionary *dict = di;
+            NSMutableArray *arr=[[NSMutableArray alloc]init];
+            NSString *name = dict[@"itemname"];
+            //NSLog(@"Name: %@",name);
+            [arr addObject:name];
+            NSString *qty = dict[@"qty"];
+            //NSLog(@"Name: %@",qty);
+            [arr addObject:qty];
+            NSString *cgy = dict[@"category"];
+            //NSLog(@"Name: %@",cgy);
+            [arr addObject:cgy];
+            NSString *edate = dict[@"edate"];
+            //NSLog(@"Name: %@",edate);
+            [arr addObject:edate];
+            NSString *fav = dict[@"fav"];
+            [arr addObject:fav];
+            //NSLog(@"Name: %@",fav);
+            [self.inventoryItemarr addObject:arr];
+        }
+
     }
-    // Uncomment the following line to preserve selection between presentations.
+    else{
+        self.inventoryItemarr = [[NSMutableArray alloc] init];
+    }
+        // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
