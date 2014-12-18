@@ -113,7 +113,11 @@
     return YES;
 }
 
-
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self viewDidLoad];
+    [self.tableView reloadData];
+}
 
 //Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,8 +126,6 @@
         
         
         //NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];
-        
-        NSLog(@"TRS:%@",[[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0]);
         
         [self.inventoryItemarr removeObjectAtIndex:indexPath.row];
         

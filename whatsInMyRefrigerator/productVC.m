@@ -24,8 +24,6 @@ NSDate *dateTime;
     [super viewDidLoad];
     //[self.navigationController setNavigationBarHidden:NO animated:YES];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-    //NSLog(@"username: %@",self.username);
-    //NSLog(@"String value %@", productTitleFromCameraScanner);
     productTitle.text = productTitleFromCameraScanner;
     self.qty.text = self.qtyFromInvent;
      self.category.text = self.qtytypeFromInvent;
@@ -47,23 +45,13 @@ NSDate *dateTime;
     [pickerDate setDate:[NSDate date]];
     [pickerDate addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     [self.edate setInputView:pickerDate];
-
-    //    tap to dismiss
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-    
-
-    
+  
 }
 
 - (IBAction)updateTime:(id)sender {
     if([self.edate isFirstResponder]){ 
         UIDatePicker *picker = (UIDatePicker*)self.edate.inputView;
         dateTime = picker.date;
-        NSLog(@"updated date is ====> %@", dateTime);
-
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSString *myDateString = [dateFormatter stringFromDate: [picker date]];
@@ -73,13 +61,22 @@ NSDate *dateTime;
     
 }
 
--(void)dismissKeyboard {
-    [self.qty resignFirstResponder];
-    [self.category resignFirstResponder];
-    [self.productTitle resignFirstResponder];
-    [self.edate resignFirstResponder];
+
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self textFieldShouldReturn:self.productTitle];
+    [self textFieldShouldReturn:self.qty];
+    [self textFieldShouldReturn:self.category];
+    [self textFieldShouldReturn:self.edate];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
 
 -(void)updateTextField:(id)sender
 {
@@ -94,7 +91,6 @@ NSDate *dateTime;
 }
 
 -(IBAction)submit:(id)sender {
-    NSLog(@"Submit button clicked");
     NSString *msg=@"";
     BOOL f1=true,f2=true;
     if([self.productTitle.text isEqualToString:@""]){
@@ -111,8 +107,8 @@ NSDate *dateTime;
         str = [str stringByAppendingString:@"&arg2="];
         str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
         str = [str stringByAppendingString:@"&arg3="];
-        NSLog(@"PRd:%@",self.productTitleFromCameraScanner);
-        if (![self.productTitleFromCameraScanner isKindOfClass:[NSNull null] ]) {
+        if (self.productTitleFromCameraScanner.length!=0) {
+            NSLog(@"PRd:%@",self.productTitleFromCameraScanner);
             if ([self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
                 str = [str stringByAppendingString:self.productTitle.text];
             }else{
@@ -130,13 +126,12 @@ NSDate *dateTime;
         str = [str stringByAppendingString:@"&arg7="];
         NSString *bol = self.favval.isOn ? @"1" : @"0";
         str = [str stringByAppendingString:bol];
-        if (![self.productTitleFromCameraScanner isEqual:[NSNull null]]) {
+        if (!self.productTitleFromCameraScanner.length!=0) {
             if (![self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
                 str = [str stringByAppendingString:@"&arg8="];
                 str = [str stringByAppendingString:self.productTitle.text];
             }
         }
-        NSLog(@"TSR: %@",str);
         NSArray *dicta = [ml downloadItems:str];
         if([self addToFav]){
             Middlelayer *ml = [[Middlelayer alloc]init];
@@ -176,7 +171,6 @@ NSDate *dateTime;
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     
-    NSLog(@"Date time set is  ================ > %@", dateTime);
     localNotification.fireDate = dateTime;
     localNotification.alertBody = [NSString stringWithFormat:@"Alert Fired at %@", dateTime];
     localNotification.soundName = UILocalNotificationDefaultSoundName;

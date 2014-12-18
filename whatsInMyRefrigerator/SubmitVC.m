@@ -54,6 +54,22 @@
 }
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self textFieldShouldReturn:self.usr];
+    [self textFieldShouldReturn:self.pwd];
+    [self textFieldShouldReturn:self.cfmpwd];
+    [self textFieldShouldReturn:self.emid];
+    
+    // NSLog(@"Called");
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
 -(void)checkpwd{
     NSString *msg = @"";
     
