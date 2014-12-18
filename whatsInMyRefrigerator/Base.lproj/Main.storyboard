@@ -355,7 +355,7 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
         <scene sceneID="1qU-uK-zVe">
             <objects>
                 <navigationController storyboardIdentifier="inventnav" title="inventnav" automaticallyAdjustsScrollViewInsets="NO" id="6qL-D8-w0j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Inventory" id="mGd-ii-Nks"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="filled_box-32.png" id="mGd-ii-Nks"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ylg-tW-huU">
@@ -573,6 +573,8 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
         </scene>
     </scenes>
     <resources>
+        <image name="about-32.png" width="32" height="32"/>
+        <image name="filled_box-32.png" width="32" height="32"/>
         <image name="fridge-120.png" width="120" height="120"/>
         <image name="info-50.png" width="50" height="50"/>
         <image name="like-100-2.png" width="32" height="32"/>

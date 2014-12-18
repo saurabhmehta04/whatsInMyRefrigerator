@@ -40,20 +40,15 @@
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSDictionary *arr = (NSDictionary *)[ml downloadItems:restAPI];
     if (![arr[@"name"] isEqual:[NSNull null]]) {
-        
-        NSLog(@"data2:%@",[[[[arr[@"name"] componentsSeparatedByString:@","] objectAtIndex:0] componentsSeparatedByString:@" "] objectAtIndex:0]);
-        //NSLog(@"data3:%@",arr);
         self.productTitle = [[arr[@"name"] componentsSeparatedByString:@","] objectAtIndex:0];
-        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];
-        
-//        view.productTitle.text = [self productTitle];
-        view.productTitleFromCameraScanner = [self productTitle];
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:view animated:YES];
     }else{
-        NSLog(@"Invalid");
+        self.productTitle = @"";
     }
-    
+        productVC *view = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:@"product"];//        view.productTitle.text = [self productTitle];
+        view.productTitleFromCameraScanner = [self productTitle];
+        UINavigationController *vc = self.navigationController;
+        [self.navigationController popViewControllerAnimated:NO];
+       [vc pushViewController:view animated:YES];
     
     
 }
@@ -162,13 +157,13 @@
             
 //            [self.navigationController pushViewController:viewController animated:YES];
             _label.text = self.string;
-            NSLog(@"Label is => %@", _label.text);
+//            NSLog(@"Label is => %@", _label.text);
 
            break;
         }
         else{
             _label.text = @"(none)";
-            NSLog(@"Label is => %@", _label.text);
+//            NSLog(@"Label is => %@", _label.text);
         }
    }
     
@@ -181,7 +176,7 @@
 //to toggle flashLight while scanning
 - (void) flashlight
 {
-    NSLog(@"Turning on flashlight...");
+    //NSLog(@"Turning on flashlight...");
     
     AVCaptureDevice *flashLight = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if ([flashLight isTorchAvailable] && [flashLight isTorchModeSupported:AVCaptureTorchModeOn])

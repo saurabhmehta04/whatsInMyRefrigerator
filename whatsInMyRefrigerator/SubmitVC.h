@@ -22,6 +22,8 @@
 @property (nonatomic, assign) BOOL eid;
 
 -(IBAction)check:(id)sender;
+-(IBAction)info:(id)sender;
+
 
 -(BOOL)submit;
 -(void)checkpwd;

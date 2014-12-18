@@ -113,7 +113,11 @@
     return YES;
 }
 
-
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self viewDidLoad];
+    [self.tableView reloadData];
+}
 
 //Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,8 +126,6 @@
         
         
         //NSUserDefaults *nsudefault = [NSUserDefaults standardUserDefaults];
-        
-        NSLog(@"TRS:%@",[[self.inventoryItemarr objectAtIndex:indexPath.row] objectAtIndex:0]);
         
         [self.inventoryItemarr removeObjectAtIndex:indexPath.row];
         
@@ -155,7 +157,7 @@
                              view.hidesBottomBarWhenPushed = YES;
                              [self.navigationController setNavigationBarHidden:NO animated:YES];
                              [self.navigationController pushViewController:view animated:YES];
-                             NSLog(@"In scan UIAlertAction");
+                             //NSLog(@"In scan UIAlertAction");
                              
                          }];
     
@@ -201,7 +203,7 @@
     [view addAction:add_manually];
     [view addAction:cancel];
     [self presentViewController:view animated:YES completion:nil];
-    NSLog(@"Item adding");
+    //NSLog(@"Item adding");
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{

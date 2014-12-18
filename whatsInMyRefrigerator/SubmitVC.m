@@ -54,6 +54,22 @@
 }
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self textFieldShouldReturn:self.usr];
+    [self textFieldShouldReturn:self.pwd];
+    [self textFieldShouldReturn:self.cfmpwd];
+    [self textFieldShouldReturn:self.emid];
+    
+    // NSLog(@"Called");
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
 -(void)checkpwd{
     NSString *msg = @"";
     
@@ -132,6 +148,10 @@
     
 }
 
+-(IBAction)info:(id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"Must Contain 1 UpperCase\nMust Contain 1 LowerCase\nMust Contain 1 Integer\nMust Contain ateast 8 character\n" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
 
 -(BOOL)submit{
     NSLog(@"Usr: %d and Pass: %d and Email: %d",self.usrn,self.pswd,self.eid);
