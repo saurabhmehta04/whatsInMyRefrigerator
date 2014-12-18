@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="MLF-MD-jrK" customClass="FavouiteTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wgv-yB-FOb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -263,7 +263,7 @@
             <objects>
                 <viewController id="KRq-HB-eIW" customClass="MapVC" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="F05-Fu-aSN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="NearBy" image="map_marker-32.png" id="pm1-PL-xMC"/>
@@ -376,7 +376,7 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
             <objects>
                 <tableViewController storyboardIdentifier="inventory" title="invent" id="thU-Wc-52T" customClass="InventoryTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hlf-Cl-U4o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SampleCell" id="sfs-G7-ppR">
@@ -419,7 +419,7 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
             <objects>
                 <tableViewController storyboardIdentifier="inventitem" title="inventitem" id="gzO-MR-zK7" customClass="InventoryItemTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="T1U-mo-cPf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -573,7 +573,6 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
         </scene>
     </scenes>
     <resources>
-        <image name="about-32.png" width="32" height="32"/>
         <image name="filled_box-32.png" width="32" height="32"/>
         <image name="fridge-120.png" width="120" height="120"/>
         <image name="info-50.png" width="50" height="50"/>
