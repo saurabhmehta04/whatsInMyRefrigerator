@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.inventoryItemarr = [[NSMutableArray alloc]init];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-    NSLog(@"username: %@",self.username);
+    //NSLog(@"username: %@",self.username);
     
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSString *str = @"http://wtf.lokesh-cherukuri.com/inventoryitems.php?arg1=";
@@ -29,27 +29,33 @@
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
     NSArray *dicta = [ml downloadItems:str];
-    NSLog(@"Name: %d",[dicta count]);
-    NSDictionary *dict = (NSDictionary *)dicta[0];
-    for (id di in dicta){
-        NSDictionary *dict = di;
-        NSMutableArray *arr=[[NSMutableArray alloc]init];
-        NSString *name = dict[@"itemname"];
-        //NSLog(@"Name: %@",name);
-        [arr addObject:name];
-        NSString *qty = dict[@"qty"];
-        //NSLog(@"Name: %@",qty);
-        [arr addObject:qty];
-        NSString *cgy = dict[@"category"];
-        //NSLog(@"Name: %@",cgy);
-        [arr addObject:cgy];
-        NSString *edate = dict[@"edate"];
-        //NSLog(@"Name: %@",edate);
-        [arr addObject:edate];
-        NSString *fav = dict[@"fav"];
-        [arr addObject:fav];
-        //NSLog(@"Name: %@",fav);
-        [self.inventoryItemarr addObject:arr];
+    //NSLog(@"Name: %@",dicta);
+    if ([dicta count]>0) {
+        NSDictionary *dict = (NSDictionary *)dicta[0];
+        for (id di in dicta){
+            NSDictionary *dict = di;
+            NSMutableArray *arr=[[NSMutableArray alloc]init];
+            NSString *name = dict[@"itemname"];
+            //NSLog(@"Name: %@",name);
+            [arr addObject:name];
+            NSString *qty = dict[@"qty"];
+            //NSLog(@"Name: %@",qty);
+            [arr addObject:qty];
+            NSString *cgy = dict[@"category"];
+            //NSLog(@"Name: %@",cgy);
+            [arr addObject:cgy];
+            NSString *edate = dict[@"edate"];
+            //NSLog(@"Name: %@",edate);
+            [arr addObject:edate];
+            NSString *fav = dict[@"fav"];
+            [arr addObject:fav];
+            //NSLog(@"Name: %@",fav);
+            [self.inventoryItemarr addObject:arr];
+        }
+
+    }
+    else{
+        self.inventoryItemarr = [[NSMutableArray alloc] init];
     }
         // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
