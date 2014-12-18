@@ -153,7 +153,7 @@
                          {
                              cameraScanner *view = [[cameraScanner alloc] init];
                              view.hidesBottomBarWhenPushed = YES;
-                             [self.navigationController setNavigationBarHidden:YES animated:YES];
+                             [self.navigationController setNavigationBarHidden:NO animated:YES];
                              [self.navigationController pushViewController:view animated:YES];
                              NSLog(@"In scan UIAlertAction");
                              

@@ -25,9 +25,20 @@
     // Do any additional setup after loading the view.
 //    cameraScanner *view = [self.storyboard instantiateInitialViewController:@"camera"];
 //    productVC *prod = [self.storyboard instantiateViewControllerWithIdentifier:@"product"];
+   
     
-    NSLog(@"This is test");
-    
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self textFieldShouldReturn:self.usr];
+     [self textFieldShouldReturn:self.pwd];
+    // NSLog(@"Called");
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,15 +54,10 @@
     str = [str stringByAppendingString:self.usr.text];
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:self.pwd.text];
-     NSLog(@"IN %@",str);
     NSArray *dicta = [ml downloadItems:str];
-     NSLog(@"IN %@",dicta);
     NSDictionary *dict = (NSDictionary *)dicta[0];
     cnt = [dict[@"count(*)"] intValue];
-   
-    NSLog(@"cn:%d",cnt);
     if(cnt==1) {
-        NSLog(@"Checking");
         return TRUE;
     }else{
         UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Invalid Login!!!"
@@ -82,8 +88,6 @@
     UIButton *btn = (UIButton *)sender;
     if ([btn.titleLabel.text isEqualToString:@"Login"]) {
         if([self login]){
-            NSLog(@"In true if");
-            NSLog(@"USRN:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]);
         [[NSUserDefaults standardUserDefaults] setObject:self.usr.text forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
