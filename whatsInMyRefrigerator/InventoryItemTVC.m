@@ -155,7 +155,7 @@
                              view.hidesBottomBarWhenPushed = YES;
                              [self.navigationController setNavigationBarHidden:NO animated:YES];
                              [self.navigationController pushViewController:view animated:YES];
-                             NSLog(@"In scan UIAlertAction");
+                             //NSLog(@"In scan UIAlertAction");
                              
                          }];
     
@@ -201,7 +201,7 @@
     [view addAction:add_manually];
     [view addAction:cancel];
     [self presentViewController:view animated:YES completion:nil];
-    NSLog(@"Item adding");
+    //NSLog(@"Item adding");
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{

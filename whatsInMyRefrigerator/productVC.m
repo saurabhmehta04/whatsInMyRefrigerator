@@ -97,10 +97,10 @@ NSDate *dateTime;
     NSLog(@"Submit button clicked");
     NSString *msg=@"";
     BOOL f1=true,f2=true;
-    if(self.productTitle.text==@""){
+    if([self.productTitle.text isEqualToString:@""]){
         msg = [msg stringByAppendingString:@"Product Titile cannot be left blank"];
         f1 = false;
-    }else if (self.edate.text==@""){
+    }else if ([self.edate.text isEqualToString:@""]){
         msg = [msg stringByAppendingString:@"Expiraton Date cannot be Blank"];
         f2 = false;
     }
@@ -111,10 +111,15 @@ NSDate *dateTime;
         str = [str stringByAppendingString:@"&arg2="];
         str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
         str = [str stringByAppendingString:@"&arg3="];
-        if ([self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
-            str = [str stringByAppendingString:self.productTitle.text];
+        NSLog(@"PRd:%@",self.productTitleFromCameraScanner);
+        if (![self.productTitleFromCameraScanner isKindOfClass:[NSNull null] ]) {
+            if ([self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
+                str = [str stringByAppendingString:self.productTitle.text];
+            }else{
+                str = [str stringByAppendingString:self.productTitleFromCameraScanner];
+            }
         }else{
-            str = [str stringByAppendingString:self.productTitleFromCameraScanner];
+             str = [str stringByAppendingString:self.productTitle.text];
         }
         str = [str stringByAppendingString:@"&arg4="];
         str = [str stringByAppendingString:self.qty.text];
@@ -125,14 +130,14 @@ NSDate *dateTime;
         str = [str stringByAppendingString:@"&arg7="];
         NSString *bol = self.favval.isOn ? @"1" : @"0";
         str = [str stringByAppendingString:bol];
-        if (![self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
-            str = [str stringByAppendingString:@"&arg8="];
-            str = [str stringByAppendingString:self.productTitle.text];
+        if (![self.productTitleFromCameraScanner isEqual:[NSNull null]]) {
+            if (![self.productTitle.text isEqualToString:self.productTitleFromCameraScanner]) {
+                str = [str stringByAppendingString:@"&arg8="];
+                str = [str stringByAppendingString:self.productTitle.text];
+            }
         }
-        //NSLog(@"STRing: %@",str);
-        
+        NSLog(@"TSR: %@",str);
         NSArray *dicta = [ml downloadItems:str];
-     
         if([self addToFav]){
             Middlelayer *ml = [[Middlelayer alloc]init];
             NSString *str = @"http://wtf.lokesh-cherukuri.com/inventoryitemsupdate.php?arg1=";
@@ -150,8 +155,7 @@ NSDate *dateTime;
             [alert show];
 
         }
-        //NSLog(@"Name: %@",dicta);
-        //NSDictionary *dict = (NSDictionary *)dicta[0];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
     }else{
         
         UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"Product Detail Invalid!!!"
@@ -162,7 +166,7 @@ NSDate *dateTime;
         [alert show];
     }
     
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+    
 }
 
 - (IBAction)setNotification:(UIButton *)sender {

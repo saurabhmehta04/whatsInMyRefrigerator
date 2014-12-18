@@ -185,6 +185,17 @@
                                     <action selector="check:" destination="OM1-FW-ZrP" eventType="editingChanged" id="kQn-q8-0W8"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMp-HP-8OY">
+                                <rect key="frame" x="28" y="28" width="60" height="32"/>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.76862745099999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="tel-rx-52I"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-pm-p7H">
                                 <rect key="frame" x="151" y="404" width="72" height="31"/>
                                 <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -198,21 +209,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2D-L8-mje">
-                                <rect key="frame" x="333" y="169" width="20" height="20"/>
+                                <rect key="frame" x="328" y="171" width="20" height="20"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPS-ItalicMT" family="Times New Roman" pointSize="25"/>
                                 <state key="normal" backgroundImage="info-50.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMp-HP-8OY">
-                                <rect key="frame" x="28" y="28" width="60" height="32"/>
-                                <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.17254901959999999" green="0.76862745099999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="tel-rx-52I"/>
+                                    <action selector="info:" destination="OM1-FW-ZrP" eventType="touchUpInside" id="eaH-6x-Zd9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -299,7 +302,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gpA-5Q-Qjh"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="about-32.png" id="gpA-5Q-Qjh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bm-CQ-azb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,7 +313,7 @@
         <scene sceneID="1qU-uK-zVe">
             <objects>
                 <navigationController storyboardIdentifier="inventnav" title="inventnav" automaticallyAdjustsScrollViewInsets="NO" id="6qL-D8-w0j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Inventory" id="mGd-ii-Nks"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="filled_box-32.png" id="mGd-ii-Nks"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ylg-tW-huU">
@@ -526,13 +529,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about-32.png" width="32" height="32"/>
+        <image name="filled_box-32.png" width="32" height="32"/>
         <image name="fridge-120.png" width="120" height="120"/>
         <image name="info-50.png" width="50" height="50"/>
         <image name="like-100-2.png" width="32" height="32"/>
         <image name="map_marker-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bGc-nx-S7j"/>
+        <segue reference="58o-3W-zkF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22352942819999999" green="0.79215693470000004" blue="0.45490199329999997" alpha="1" colorSpace="deviceRGB"/>
 </document>

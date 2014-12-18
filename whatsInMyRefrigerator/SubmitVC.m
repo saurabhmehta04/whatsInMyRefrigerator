@@ -132,6 +132,10 @@
     
 }
 
+-(IBAction)info:(id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"Must Contain 1 UpperCase\nMust Contain 1 LowerCase\nMust Contain 1 Integer\nMust Contain ateast 8 character\n" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
 
 -(BOOL)submit{
     NSLog(@"Usr: %d and Pass: %d and Email: %d",self.usrn,self.pswd,self.eid);
