@@ -15,6 +15,15 @@
     return self;
 }
 
+-(id)initWithName:(NSString *)s_name slocation:(CLLocation *)s_location{
+    self = [super init];
+    if(self!=nil){
+        self.storeName = s_name;
+        self.location = s_location;
+    }
+    
+    return self;
+}
 
 //+(id) store{
 //

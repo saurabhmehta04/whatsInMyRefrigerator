@@ -7,6 +7,7 @@
 //
 
 #import "MapVC.h"
+#import "Store.h"
 
 @interface MapVC ()
 
@@ -26,13 +27,7 @@ return self;
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    
-    NSLog(@"Data: ");
-    
-    
-    
+    [super viewDidLoad];  
     
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -41,13 +36,15 @@ return self;
     
     [self.indicatorView startAnimating];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        //[self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
         
     }
     
-//    for (N*park in self.parks) {
-//        [self.mapView addAnnotation:(id) park];
-//    }
+    for (Store *st in self.store) {
+        NSLog(@"Data: %@",st);
+
+        [self.mapView addAnnotation:(id) st];
+    }
     
     // Map and Location initialization
     self.locationManager = [[CLLocationManager alloc] init];
@@ -153,7 +150,7 @@ return self;
     
 }
 
-/*
+
 
 
 // This delegate method is called once for every annotation that is created.
@@ -163,13 +160,13 @@ return self;
     //[self.indicatorView startAnimating];
     if(annotation != mv.userLocation) {
         // if it's NOT the user's current location pin, create the annotation
-        Park *parkAnnotation = (Park*)annotation;
+        Store *storeAnnotation = (Store*)annotation;
         // Look for an existing view to reuse
-        view = [mv dequeueReusableAnnotationViewWithIdentifier:@"parkAnnotation"];
+        view = [mv dequeueReusableAnnotationViewWithIdentifier:@"storeAnnotation"];
         // If an existing view is not found, create a new one
         if(view == nil) {
-            view = [[MKPinAnnotationView alloc] initWithAnnotation:(id) parkAnnotation
-                                                   reuseIdentifier:@"parkAnnotation"];
+            view = [[MKPinAnnotationView alloc] initWithAnnotation:(id) storeAnnotation
+                                                   reuseIdentifier:@"storeAnnotation"];
         }
         
         // Now we have a view for the annotation, so let's set some properties
@@ -195,18 +192,12 @@ return self;
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    Park *parkAnnotation = (Park *)[view annotation];
+    Store *storeAnnotation = (Store *)[view annotation];
     switch ([control tag]) {
-        case 0:
-        {
-            NSURL *url = [NSURL URLWithString:parkAnnotation.link];
-            [[UIApplication sharedApplication] openURL:url];
-        }
-            break;
         case 1:
         {
             CLGeocoder *geocoder = [[CLGeocoder alloc]init];
-            [geocoder reverseGeocodeLocation:parkAnnotation.location completionHandler:^(NSArray *placemarks, NSError *err) {
+            [geocoder reverseGeocodeLocation:storeAnnotation.location completionHandler:^(NSArray *placemarks, NSError *err) {
                 if (err) {
                     NSLog(@"GeoCode Failed with error: %@",err);
                     return;
@@ -214,7 +205,7 @@ return self;
                 if(placemarks && placemarks.count > 0){
                     CLPlacemark *placemark = placemarks[0];
                     NSDictionary *addDict = placemark.addressDictionary;
-                    MKPlacemark *place = [[MKPlacemark alloc]initWithCoordinate:parkAnnotation.location.coordinate addressDictionary:addDict];
+                    MKPlacemark *place = [[MKPlacemark alloc]initWithCoordinate:storeAnnotation.location.coordinate addressDictionary:addDict];
                     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:place];
                     NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving};
                     [mapItem openInMapsWithLaunchOptions:options];
@@ -227,7 +218,7 @@ return self;
             break;
     }
 }
-*/
+
 -(IBAction)mapType:(id)sender{
     switch (((UISegmentedControl *)sender).selectedSegmentIndex)
     {
