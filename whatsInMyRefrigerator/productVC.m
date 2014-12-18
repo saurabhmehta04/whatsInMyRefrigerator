@@ -168,18 +168,14 @@ NSDate *dateTime;
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
-    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    
     localNotification.fireDate = dateTime;
-    localNotification.alertBody = [NSString stringWithFormat:@"Alert Fired at %@", dateTime];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ is going to expire on %@", self.productTitle.text, dateTime];
     localNotification.soundName = UILocalNotificationDefaultSoundName;
-//    localNotification.applicationIconBadgeNumber = 1;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (BOOL)addToFav {
-    //NSLog(@"Val: %d",self.favval.isOn);
     return self.favval.isOn;
 }
 @end

@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.inventoryItemarr = [[NSMutableArray alloc]init];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-    //NSLog(@"username: %@",self.username);
+    NSLog(@"username: %@",self.username);
     
     Middlelayer *ml = [[Middlelayer alloc]init];
     NSString *str = @"http://wtf.lokesh-cherukuri.com/inventoryitems.php?arg1=";
@@ -29,7 +29,7 @@
     str = [str stringByAppendingString:@"&arg2="];
     str = [str stringByAppendingString:[[NSUserDefaults standardUserDefaults] stringForKey:@"fridge"]];
     NSArray *dicta = [ml downloadItems:str];
-    //NSLog(@"Name: %@",dicta);
+    NSLog(@"Name: %d",[dicta count]);
     NSDictionary *dict = (NSDictionary *)dicta[0];
     for (id di in dicta){
         NSDictionary *dict = di;
