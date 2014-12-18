@@ -16,10 +16,10 @@
 }
 
 
-+(id) store{
-
-    return store;
-}
+//+(id) store{
+//
+//    return store;
+//}
 
 
 @end

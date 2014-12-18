@@ -26,52 +26,43 @@
     
     MapVC *mv = [[MapVC alloc] init];
     mv.store = self.store;
-    
-    // Override point for customization after application launch.
-    
-//    if([[NSUserDefaults standardUserDefaults] stringForKey:@"username"].length>0){
-//        UITabBarController *tab = (UITabBarController *)self.window.rootViewController;
-//        UINavigationController *navVC = (UINavigationController *) [[tab viewControllers]objectAtIndex:1];
-//        InventoryTVC *invent = [[UIStoryboard alloc] instantiateViewControllerWithIdentifier:@"inventory"];
-//        [navVC pushViewController:invent animated:YES];
-//    }
-//    [GMSServices provideAPIKey:@"AIzaSyBtV2tlMp-dqxoz299dVeLQ46uL5RyNhYQ"];
+
     return YES;
 
 }
 
 -(void) loadstore{
     
-    self.store = [NSMutableArray array];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"plist"];
-    
-    NSDictionary *tempDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    
-    NSArray *tempArray = [tempDictionary objectForKey:@"nearbylocation"];
-    
-    // create parks ivar
-    self.store = [[NSMutableArray alloc]init];
-    
-    for (id dict in tempArray) {
-        NSMutableArray *arr = [[NSMutableArray alloc] init];
-        NSString *name = [dict objectForKey:@"name"];
-        float latitude = [[dict objectForKey:@"lat"] floatValue];
-        float longitude = [[dict objectForKey:@"long"] floatValue];
-        CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-        //you get the rest of the values
-        //....
-        [arr addObject:name];
-        [arr addObject:location];
-        
-        //you do rest of assignments
-        //....
-        
-        //add to self.parks array
-        [self.store addObject:arr];
-        
-    }
-
+//    self.store = [NSMutableArray array];
+//    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"plist"];
+//    
+//    NSDictionary *tempDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+//    
+//    NSArray *tempArray = [tempDictionary objectForKey:@"nearbylocation"];
+//    
+//    // create parks ivar
+//    self.store = [[NSMutableArray alloc]init];
+//    
+//    for (id dict in tempArray) {
+//        NSMutableArray *arr = [[NSMutableArray alloc] init];
+//        NSString *name = [dict objectForKey:@"name"];
+//        float latitude = [[dict objectForKey:@"lat"] floatValue];
+//        float longitude = [[dict objectForKey:@"long"] floatValue];
+//        CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+//        //you get the rest of the values
+//        //....
+//        [arr addObject:name];
+//        [arr addObject:location];
+//        
+//        //you do rest of assignments
+//        //....
+//        
+//        //add to self.parks array
+//        [self.store addObject:arr];
+//        
+//    }
+//
 
 }
 
