@@ -25,10 +25,10 @@
     return self;
 }
 
-//+(id) store{
-//
-//    return store;
-//}
++(id) store{
+    Store *store = [[Store alloc]initWithName:@"Testing" slocation:nil];
+    return store;
+}
 
 
 @end

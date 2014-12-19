@@ -19,7 +19,7 @@
     
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+    NSLog(@"This is test");
     self.inventoryarr = [[NSMutableArray alloc]init];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     Middlelayer *ml = [[Middlelayer alloc]init];

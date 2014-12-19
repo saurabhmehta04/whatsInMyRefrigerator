@@ -71,11 +71,11 @@
     
     static NSString *CellIdentifier = @"favitem";
     UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSLog(@"fav: %@",self.favArry);
+    //NSLog(@"fav: %@",self.favArry);
     // Configure the cell...
-    
+    //NSLog(@"%@",[[self.favArry objectAtIndex:indexPath.row] objectAtIndex:0]);
     cell.textLabel.text = [[self.favArry objectAtIndex:indexPath.row] objectAtIndex:0];
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }

@@ -172,9 +172,13 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             FavouiteTVC *favController = [[FavouiteTVC alloc]init];
-                             [self.navigationController pushViewController:favController animated:YES];
-                             [view dismissViewControllerAnimated:YES completion:nil];
+                             
+                             FavouiteTVC  *view = [self.storyboard instantiateViewControllerWithIdentifier:@"favourites"];
+                             [self.navigationController pushViewController:view animated:YES];
+
+//                             FavouiteTVC *favController = [[FavouiteTVC alloc]init];
+//                             [self.navigationController pushViewController:favController animated:YES];
+//                             [view dismissViewControllerAnimated:YES completion:nil];
                          }];
     
     UIAlertAction* add_manually = [UIAlertAction

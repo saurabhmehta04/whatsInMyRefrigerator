@@ -20,6 +20,8 @@
 		3FBFBDA01A3D86FE0025ED11 /* FavouiteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBD9F1A3D86FE0025ED11 /* FavouiteTVC.m */; };
 		3FBFBDA61A3D8B8F0025ED11 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */; };
 		3FBFBDA81A3D8C470025ED11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */; };
+		D210B4F01A4407CA00B3F4FE /* whatsInMyRefrigerator.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D210B4EF1A4407CA00B3F4FE /* whatsInMyRefrigerator.pdf */; };
+		D210B4F21A4407DB00B3F4FE /* php files.zip in Resources */ = {isa = PBXBuildFile; fileRef = D210B4F11A4407DB00B3F4FE /* php files.zip */; };
 		D2919E0C1A378177005A046C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0A1A378177005A046C /* AVFoundation.framework */; };
 		D2919E0F1A3784E7005A046C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E0E1A3784E7005A046C /* Foundation.framework */; };
 		D2919E111A378515005A046C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2919E101A378515005A046C /* CoreGraphics.framework */; };
@@ -72,6 +74,8 @@
 		3FBFBDA51A3D8B8F0025ED11 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
 		3FBFBDA71A3D8C470025ED11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3FBFBDA91A3D8CA60025ED11 /* ZoomingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomingProtocol.h; sourceTree = "<group>"; };
+		D210B4EF1A4407CA00B3F4FE /* whatsInMyRefrigerator.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = whatsInMyRefrigerator.pdf; sourceTree = "<group>"; };
+		D210B4F11A4407DB00B3F4FE /* php files.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "php files.zip"; sourceTree = "<group>"; };
 		D2919E0A1A378177005A046C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D2919E0B1A378177005A046C /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		D2919E0E1A3784E7005A046C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -187,6 +191,8 @@
 		D2949C2C1A2FE0A3006B8D7D = {
 			isa = PBXGroup;
 			children = (
+				D210B4F11A4407DB00B3F4FE /* php files.zip */,
+				D210B4EF1A4407CA00B3F4FE /* whatsInMyRefrigerator.pdf */,
 				3FA05D5D1A425B7B00D60A46 /* Framework */,
 				3FA05D5C1A425B5D00D60A46 /* Images */,
 				D2949C371A2FE0A3006B8D7D /* whatsInMyRefrigerator */,
@@ -344,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2949C471A2FE0A3006B8D7D /* Main.storyboard in Resources */,
+				D210B4F01A4407CA00B3F4FE /* whatsInMyRefrigerator.pdf in Resources */,
 				D2E78F0C1A41CD8400E43CBF /* fridge-120.png in Resources */,
 				D2949C4C1A2FE0A3006B8D7D /* LaunchScreen.xib in Resources */,
 				D2E78F141A41E2BD00E43CBF /* info-50.png in Resources */,
@@ -354,6 +361,7 @@
 				D2949C621A2FE135006B8D7D /* video.jpg in Resources */,
 				3FA05D631A4266D500D60A46 /* map.plist in Resources */,
 				D2E78F101A41CD8400E43CBF /* like-100-2.png in Resources */,
+				D210B4F21A4407DB00B3F4FE /* php files.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

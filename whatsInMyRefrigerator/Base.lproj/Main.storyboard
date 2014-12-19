@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--FavouiteTVC-->
@@ -309,7 +309,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nMq-Af-T6c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QFD-AL-HJZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LCG-0L-fJl">
@@ -341,10 +341,10 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-7O-WKa">
-                                        <rect key="frame" x="36" y="21" width="60" height="33"/>
+                                        <rect key="frame" x="36" y="21" width="61" height="33"/>
                                         <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
-                                        <state key="normal" title="Back">
+                                        <state key="normal" title="Logout">
                                             <color key="titleColor" red="0.17254901959999999" green="0.76862745099999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -575,7 +575,7 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
         <!--Favourites-->
         <scene sceneID="Vas-xL-3NO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mKx-gp-s64" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="favourites" automaticallyAdjustsScrollViewInsets="NO" id="mKx-gp-s64" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favourites" image="like-100-2.png" id="ABY-XR-ouk"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -602,9 +602,9 @@ Never again forget what you have in your regrigerator, let an item expire, or wh
         <image name="map_marker-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bGc-nx-S7j"/>
         <segue reference="H6O-Vd-Q2O"/>
-        <segue reference="SIt-u4-Oy4"/>
+        <segue reference="DJA-gR-sDS"/>
+        <segue reference="bGc-nx-S7j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22352942819999999" green="0.79215693470000004" blue="0.45490199329999997" alpha="1" colorSpace="deviceRGB"/>
 </document>
